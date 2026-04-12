@@ -33,8 +33,8 @@ from pathlib import Path
 # API CONFIGURATION
 # ============================================================
 
-# TODO: In your custom app, change the URL to work with a different page.
-PAGE_URL: str = "https://arxiv.org/abs/2602.20021"
+# Custom URL to work with a Biomedical AI for drug/toxicity prediction page.
+PAGE_URL: str = "https://arxiv.org/abs/2102.10056"
 
 # Let them know who we are (and that we're doing educational web mining).
 HTTP_REQUEST_HEADERS: dict = {

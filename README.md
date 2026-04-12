@@ -234,11 +234,11 @@ git push -u origin main
 
 ## My Project Modifications
 
-To make this project my own, I made a couple small but meaningful changes to the pipeline.
+To make this project my own, I made a couple small but meaningful changes to the pipeline and applied it to a biomedical AI use case. I also tested how easily it could be reused on a different arXiv abstract without changing the core structure.
 
 **Phase 4: Make a Technical Modification**
 1. Added a small cleaning improvement + new derived feature
-      - I added a step to preserve meaning in hyphenated words by doing:
+      - I added a small cleaning improvement by replacing hyphens with spaces by doing:
         - `text = text.replace("-", " ")`
       - I also added a new derived feature called avg_word_length, which calculates the average number of characters per token.
 2. Observations:
@@ -248,13 +248,16 @@ To make this project my own, I made a couple small but meaningful changes to the
       - My frequency results felt more accurate and readable after this change.
       - My average word length was 7.96, which leans pretty technical and lines up with this being an academic paper.
 **Phase 5: Apply the Skills to a New Problem**
-1. TODO
+1. I updated the URL in my config file to point to a different arXiv abstract in the biomedical AI space (focused on drug/toxicity prediction).
 2. TODO
 3. Observations:
-     - TODO
+     - The pipeline worked on the new page without needing any structural changes, which shows it’s reusable across similar arXiv abstracts.
+     - The only change I made was updating the input URL.
 
 **Dataset Source**
-1. TODO
+1. Molecular Contrastive Learning of Representations via Graph Neural Networks
+   https://arxiv.org/abs/2102.10056
+   Domain: Biomedical AI (drug discovery & toxicity prediction)
 
 ## Example Artifact (Output)
 
