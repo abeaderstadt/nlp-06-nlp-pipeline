@@ -320,3 +320,1981 @@
 2026-04-12 14:03:44 | INFO | CI | ========================
 2026-04-12 14:03:44 | INFO | CI | Pipeline executed successfully!
 2026-04-12 14:03:44 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | === RUN START ===
+2026-04-12 14:44:21 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 14:44:21 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 14:44:21 | INFO | CI | python=3.14.3
+2026-04-12 14:44:21 | INFO | CI | os=Windows 11
+2026-04-12 14:44:21 | INFO | CI | shell=powershell
+2026-04-12 14:44:21 | INFO | CI | cwd=.
+2026-04-12 14:44:21 | INFO | CI | github_actions=False
+2026-04-12 14:44:21 | INFO | CI | START PIPELINE
+2026-04-12 14:44:21 | INFO | CI | ROOT_PATH = .
+2026-04-12 14:44:21 | INFO | CI | DATA_PATH = data
+2026-04-12 14:44:21 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 14:44:21 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 14:44:21 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 14:44:21 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 14:44:21 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 14:44:21 | INFO | CI | Top-level elements: ['html']
+2026-04-12 14:44:21 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 14:44:21 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 14:44:21 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 14:44:21 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 14:44:21 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 14:44:21 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 14:44:21 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | Extracting metadata from HTML
+2026-04-12 14:44:21 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 14:44:21 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 14:44:21 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 14:44:21 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 14:44:21 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 14:44:21 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 14:44:21 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 14:44:21 | INFO | CI | ------------------------
+2026-04-12 14:44:21 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:21 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 14:44:21 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 14:44:21 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 14:44:21 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 14:44:22 | INFO | CI |   abstract (clean): report exploratory redteaming study autonomous languagemodelpowered agents deployed live laboratory environment persiste...
+2026-04-12 14:44:22 | INFO | CI |   characters removed: 284 (19.7%)
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 14:44:22 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI |   abstract_word_count: 177
+2026-04-12 14:44:22 | INFO | CI |   author_count:        38
+2026-04-12 14:44:22 | INFO | CI |   token_count:         121
+2026-04-12 14:44:22 | INFO | CI |   unique_token_count:  111
+2026-04-12 14:44:22 | INFO | CI |   top_keywords:        report, agents, execution, researchers, conditions
+2026-04-12 14:44:22 | INFO | CI |   type_token_ratio:    0.9174
+2026-04-12 14:44:22 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'redteaming', 'study', 'autonomous', 'languagemodelpowered', 'agents', 'deployed', 'live', 'laboratory']
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 14:44:22 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 14:44:22 | INFO | CI | DataFrame Details
+2026-04-12 14:44:22 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 14:44:22 | INFO | CI |   Author count: 38
+2026-04-12 14:44:22 | INFO | CI |   Abstract word count: 177
+2026-04-12 14:44:22 | INFO | CI |   Token count (clean): 121
+2026-04-12 14:44:22 | INFO | CI |   Type-token ratio: 0.9174
+2026-04-12 14:44:22 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          121            0.9174            38
+2026-04-12 14:44:22 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 14:44:22 | INFO | CI | Transformation complete.
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 14:44:22 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 14:44:22 | INFO | CI |   Token count (clean):          121
+2026-04-12 14:44:22 | INFO | CI |   Unique token count:           111
+2026-04-12 14:44:22 | INFO | CI |   Type-token ratio:             0.9174
+2026-04-12 14:44:22 | INFO | CI |   Author count:                 38
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:22 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 14:44:22 | INFO | CI | ========================
+2026-04-12 14:44:23 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 14:44:23 | INFO | CI | ========================
+2026-04-12 14:44:23 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 14:44:23 | INFO | CI | ========================
+2026-04-12 14:44:23 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 14:44:23 | INFO | CI |       1. report                         3
+2026-04-12 14:44:23 | INFO | CI |       2. agents                         3
+2026-04-12 14:44:23 | INFO | CI |       3. execution                      2
+2026-04-12 14:44:23 | INFO | CI |       4. researchers                    2
+2026-04-12 14:44:23 | INFO | CI |       5. conditions                     2
+2026-04-12 14:44:23 | INFO | CI |       6. behaviors                      2
+2026-04-12 14:44:23 | INFO | CI |       7. vulnerabilities                2
+2026-04-12 14:44:23 | INFO | CI |       8. system                         2
+2026-04-12 14:44:23 | INFO | CI |       9. exploratory                    1
+2026-04-12 14:44:23 | INFO | CI |      10. redteaming                     1
+2026-04-12 14:44:23 | INFO | CI |      11. study                          1
+2026-04-12 14:44:23 | INFO | CI |      12. autonomous                     1
+2026-04-12 14:44:23 | INFO | CI |      13. languagemodelpowered           1
+2026-04-12 14:44:23 | INFO | CI |      14. deployed                       1
+2026-04-12 14:44:23 | INFO | CI |      15. live                           1
+2026-04-12 14:44:23 | INFO | CI |      16. laboratory                     1
+2026-04-12 14:44:23 | INFO | CI |      17. environment                    1
+2026-04-12 14:44:23 | INFO | CI |      18. persistent                     1
+2026-04-12 14:44:23 | INFO | CI |      19. memory                         1
+2026-04-12 14:44:23 | INFO | CI |      20. email                          1
+2026-04-12 14:44:23 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 14:44:23 | INFO | CI | Analysis complete.
+2026-04-12 14:44:23 | INFO | CI | ========================
+2026-04-12 14:44:23 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 14:44:23 | INFO | CI | ========================
+2026-04-12 14:44:23 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 14:44:23 | INFO | CI | ========================
+2026-04-12 14:44:23 | INFO | CI | Pipeline executed successfully!
+2026-04-12 14:44:23 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | === RUN START ===
+2026-04-12 14:51:47 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 14:51:47 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 14:51:47 | INFO | CI | python=3.14.3
+2026-04-12 14:51:47 | INFO | CI | os=Windows 11
+2026-04-12 14:51:47 | INFO | CI | shell=powershell
+2026-04-12 14:51:47 | INFO | CI | cwd=.
+2026-04-12 14:51:47 | INFO | CI | github_actions=False
+2026-04-12 14:51:47 | INFO | CI | START PIPELINE
+2026-04-12 14:51:47 | INFO | CI | ROOT_PATH = .
+2026-04-12 14:51:47 | INFO | CI | DATA_PATH = data
+2026-04-12 14:51:47 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 14:51:47 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 14:51:47 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 14:51:47 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 14:51:47 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 14:51:47 | INFO | CI | Top-level elements: ['html']
+2026-04-12 14:51:47 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 14:51:47 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 14:51:47 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 14:51:47 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 14:51:47 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 14:51:47 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 14:51:47 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | Extracting metadata from HTML
+2026-04-12 14:51:47 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 14:51:47 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 14:51:47 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 14:51:47 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 14:51:47 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 14:51:47 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 14:51:47 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 14:51:47 | INFO | CI | ------------------------
+2026-04-12 14:51:47 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 14:51:47 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 14:51:47 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 14:51:47 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 14:51:47 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 14:51:47 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI |   abstract_word_count: 177
+2026-04-12 14:51:47 | INFO | CI |   author_count:        38
+2026-04-12 14:51:47 | INFO | CI |   token_count:         130
+2026-04-12 14:51:47 | INFO | CI |   unique_token_count:  118
+2026-04-12 14:51:47 | INFO | CI |   top_keywords:        report, agents, system, language, execution
+2026-04-12 14:51:47 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 14:51:47 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 14:51:47 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 14:51:47 | INFO | CI | DataFrame Details
+2026-04-12 14:51:47 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 14:51:47 | INFO | CI |   Author count: 38
+2026-04-12 14:51:47 | INFO | CI |   Abstract word count: 177
+2026-04-12 14:51:47 | INFO | CI |   Token count (clean): 130
+2026-04-12 14:51:47 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 14:51:47 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 14:51:47 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 14:51:47 | INFO | CI | Transformation complete.
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 14:51:47 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 14:51:47 | INFO | CI |   Token count (clean):          130
+2026-04-12 14:51:47 | INFO | CI |   Unique token count:           118
+2026-04-12 14:51:47 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 14:51:47 | INFO | CI |   Author count:                 38
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:47 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 14:51:47 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 14:51:48 | INFO | CI |       1. report                         3
+2026-04-12 14:51:48 | INFO | CI |       2. agents                         3
+2026-04-12 14:51:48 | INFO | CI |       3. system                         3
+2026-04-12 14:51:48 | INFO | CI |       4. language                       2
+2026-04-12 14:51:48 | INFO | CI |       5. execution                      2
+2026-04-12 14:51:48 | INFO | CI |       6. researchers                    2
+2026-04-12 14:51:48 | INFO | CI |       7. conditions                     2
+2026-04-12 14:51:48 | INFO | CI |       8. behaviors                      2
+2026-04-12 14:51:48 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 14:51:48 | INFO | CI |      10. exploratory                    1
+2026-04-12 14:51:48 | INFO | CI |      11. red                            1
+2026-04-12 14:51:48 | INFO | CI |      12. teaming                        1
+2026-04-12 14:51:48 | INFO | CI |      13. study                          1
+2026-04-12 14:51:48 | INFO | CI |      14. autonomous                     1
+2026-04-12 14:51:48 | INFO | CI |      15. model                          1
+2026-04-12 14:51:48 | INFO | CI |      16. powered                        1
+2026-04-12 14:51:48 | INFO | CI |      17. deployed                       1
+2026-04-12 14:51:48 | INFO | CI |      18. live                           1
+2026-04-12 14:51:48 | INFO | CI |      19. laboratory                     1
+2026-04-12 14:51:48 | INFO | CI |      20. environment                    1
+2026-04-12 14:51:48 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 14:51:48 | INFO | CI | Analysis complete.
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 14:51:48 | INFO | CI | Pipeline executed successfully!
+2026-04-12 14:51:48 | INFO | CI | ========================
+2026-04-12 15:29:07 | INFO | CI | === RUN START ===
+2026-04-12 15:29:07 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 15:29:07 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 15:29:07 | INFO | CI | python=3.14.3
+2026-04-12 15:29:07 | INFO | CI | os=Windows 11
+2026-04-12 15:29:07 | INFO | CI | shell=powershell
+2026-04-12 15:29:07 | INFO | CI | cwd=.
+2026-04-12 15:29:07 | INFO | CI | github_actions=False
+2026-04-12 15:29:07 | INFO | CI | START PIPELINE
+2026-04-12 15:29:07 | INFO | CI | ROOT_PATH = .
+2026-04-12 15:29:07 | INFO | CI | DATA_PATH = data
+2026-04-12 15:29:07 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 15:29:07 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 15:29:07 | INFO | CI | ========================
+2026-04-12 15:29:07 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 15:29:07 | INFO | CI | ========================
+2026-04-12 15:29:07 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 15:29:07 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 15:29:07 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 15:29:07 | INFO | CI | ========================
+2026-04-12 15:29:07 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 15:29:07 | INFO | CI | ========================
+2026-04-12 15:29:07 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 15:29:08 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 15:29:08 | INFO | CI | Top-level elements: ['html']
+2026-04-12 15:29:08 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 15:29:08 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 15:29:08 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 15:29:08 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 15:29:08 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 15:29:08 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 15:29:08 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | Extracting metadata from HTML
+2026-04-12 15:29:08 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 15:29:08 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 15:29:08 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 15:29:08 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 15:29:08 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 15:29:08 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 15:29:08 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 15:29:08 | INFO | CI | ------------------------
+2026-04-12 15:29:08 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 15:29:08 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 15:29:08 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 15:29:08 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 15:29:08 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 15:29:08 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI |   abstract_word_count: 177
+2026-04-12 15:29:08 | INFO | CI |   author_count:        38
+2026-04-12 15:29:08 | INFO | CI |   token_count:         130
+2026-04-12 15:29:08 | INFO | CI |   unique_token_count:  118
+2026-04-12 15:29:08 | INFO | CI |   top_keywords:        report, agents, system, language, execution
+2026-04-12 15:29:08 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 15:29:08 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 15:29:08 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 15:29:08 | INFO | CI | DataFrame Details
+2026-04-12 15:29:08 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 15:29:08 | INFO | CI |   Author count: 38
+2026-04-12 15:29:08 | INFO | CI |   Abstract word count: 177
+2026-04-12 15:29:08 | INFO | CI |   Token count (clean): 130
+2026-04-12 15:29:08 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 15:29:08 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 15:29:08 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 15:29:08 | INFO | CI | Transformation complete.
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 15:29:08 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 15:29:08 | INFO | CI |   Token count (clean):          130
+2026-04-12 15:29:08 | INFO | CI |   Unique token count:           118
+2026-04-12 15:29:08 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 15:29:08 | INFO | CI |   Author count:                 38
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 4.1b/4.2b: Keyword vs Token Insight
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | Top keywords (summary view): report, agents, system, language, execution
+2026-04-12 15:29:08 | INFO | CI | Top tokens (full view): ['report', 'agents', 'system', 'language', 'execution']
+2026-04-12 15:29:08 | INFO | CI | Insight:
+2026-04-12 15:29:08 | INFO | CI | The top_keywords give a quick snapshot of what the paper is about, while the full token frequency shows all the smaller details in the language. Together, it is basically a high-level overview plus a deeper breakdown of the text.
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:08 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 15:29:08 | INFO | CI | ========================
+2026-04-12 15:29:09 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 15:29:09 | INFO | CI | ========================
+2026-04-12 15:29:09 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 15:29:09 | INFO | CI | ========================
+2026-04-12 15:29:09 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 15:29:09 | INFO | CI |       1. report                         3
+2026-04-12 15:29:09 | INFO | CI |       2. agents                         3
+2026-04-12 15:29:09 | INFO | CI |       3. system                         3
+2026-04-12 15:29:09 | INFO | CI |       4. language                       2
+2026-04-12 15:29:09 | INFO | CI |       5. execution                      2
+2026-04-12 15:29:09 | INFO | CI |       6. researchers                    2
+2026-04-12 15:29:09 | INFO | CI |       7. conditions                     2
+2026-04-12 15:29:09 | INFO | CI |       8. behaviors                      2
+2026-04-12 15:29:09 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 15:29:09 | INFO | CI |      10. exploratory                    1
+2026-04-12 15:29:09 | INFO | CI |      11. red                            1
+2026-04-12 15:29:09 | INFO | CI |      12. teaming                        1
+2026-04-12 15:29:09 | INFO | CI |      13. study                          1
+2026-04-12 15:29:09 | INFO | CI |      14. autonomous                     1
+2026-04-12 15:29:09 | INFO | CI |      15. model                          1
+2026-04-12 15:29:09 | INFO | CI |      16. powered                        1
+2026-04-12 15:29:09 | INFO | CI |      17. deployed                       1
+2026-04-12 15:29:09 | INFO | CI |      18. live                           1
+2026-04-12 15:29:09 | INFO | CI |      19. laboratory                     1
+2026-04-12 15:29:09 | INFO | CI |      20. environment                    1
+2026-04-12 15:29:09 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 15:29:09 | INFO | CI | Analysis complete.
+2026-04-12 15:29:09 | INFO | CI | ========================
+2026-04-12 15:29:09 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 15:29:09 | INFO | CI | ========================
+2026-04-12 15:29:09 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 15:29:09 | INFO | CI | ========================
+2026-04-12 15:29:09 | INFO | CI | Pipeline executed successfully!
+2026-04-12 15:29:09 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | === RUN START ===
+2026-04-12 15:40:08 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 15:40:08 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 15:40:08 | INFO | CI | python=3.14.3
+2026-04-12 15:40:08 | INFO | CI | os=Windows 11
+2026-04-12 15:40:08 | INFO | CI | shell=powershell
+2026-04-12 15:40:08 | INFO | CI | cwd=.
+2026-04-12 15:40:08 | INFO | CI | github_actions=False
+2026-04-12 15:40:08 | INFO | CI | START PIPELINE
+2026-04-12 15:40:08 | INFO | CI | ROOT_PATH = .
+2026-04-12 15:40:08 | INFO | CI | DATA_PATH = data
+2026-04-12 15:40:08 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 15:40:08 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 15:40:08 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 15:40:08 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 15:40:08 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 15:40:08 | INFO | CI | Top-level elements: ['html']
+2026-04-12 15:40:08 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 15:40:08 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 15:40:08 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 15:40:08 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 15:40:08 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 15:40:08 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 15:40:08 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | Extracting metadata from HTML
+2026-04-12 15:40:08 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 15:40:08 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 15:40:08 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 15:40:08 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 15:40:08 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 15:40:08 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 15:40:08 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 15:40:08 | INFO | CI | ------------------------
+2026-04-12 15:40:08 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 15:40:08 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 15:40:08 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 15:40:08 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 15:40:08 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 15:40:08 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI |   abstract_word_count: 177
+2026-04-12 15:40:08 | INFO | CI |   author_count:        38
+2026-04-12 15:40:08 | INFO | CI |   token_count:         130
+2026-04-12 15:40:08 | INFO | CI |   unique_token_count:  118
+2026-04-12 15:40:08 | INFO | CI |   top_keywords (phrases): ['report exploratory', 'exploratory red', 'red teaming', 'teaming study', 'study autonomous']
+2026-04-12 15:40:08 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 15:40:08 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 15:40:08 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 15:40:08 | INFO | CI | DataFrame Details
+2026-04-12 15:40:08 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 15:40:08 | INFO | CI |   Author count: 38
+2026-04-12 15:40:08 | INFO | CI |   Abstract word count: 177
+2026-04-12 15:40:08 | INFO | CI |   Token count (clean): 130
+2026-04-12 15:40:08 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 15:40:08 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 15:40:08 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 15:40:08 | INFO | CI | Transformation complete.
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 15:40:08 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 15:40:08 | INFO | CI |   Token count (clean):          130
+2026-04-12 15:40:08 | INFO | CI |   Unique token count:           118
+2026-04-12 15:40:08 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 15:40:08 | INFO | CI |   Author count:                 38
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 4.1b/4.2b: Keyword vs Token Insight
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | Top keywords (summary view): report exploratory, exploratory red, red teaming, teaming study, study autonomous
+2026-04-12 15:40:08 | INFO | CI | Top tokens (full view): ['report', 'agents', 'system', 'language', 'execution']
+2026-04-12 15:40:08 | INFO | CI | Insight:
+2026-04-12 15:40:08 | INFO | CI | The top_keywords give a quick snapshot of what the paper is about, while the full token frequency shows all the smaller details in the language. Together, it is basically a high-level overview plus a deeper breakdown of the text.
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:08 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 15:40:08 | INFO | CI | ========================
+2026-04-12 15:40:09 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 15:40:09 | INFO | CI | ========================
+2026-04-12 15:40:09 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 15:40:09 | INFO | CI | ========================
+2026-04-12 15:40:09 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 15:40:09 | INFO | CI |       1. report                         3
+2026-04-12 15:40:09 | INFO | CI |       2. agents                         3
+2026-04-12 15:40:09 | INFO | CI |       3. system                         3
+2026-04-12 15:40:09 | INFO | CI |       4. language                       2
+2026-04-12 15:40:09 | INFO | CI |       5. execution                      2
+2026-04-12 15:40:09 | INFO | CI |       6. researchers                    2
+2026-04-12 15:40:09 | INFO | CI |       7. conditions                     2
+2026-04-12 15:40:09 | INFO | CI |       8. behaviors                      2
+2026-04-12 15:40:09 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 15:40:09 | INFO | CI |      10. exploratory                    1
+2026-04-12 15:40:09 | INFO | CI |      11. red                            1
+2026-04-12 15:40:09 | INFO | CI |      12. teaming                        1
+2026-04-12 15:40:09 | INFO | CI |      13. study                          1
+2026-04-12 15:40:09 | INFO | CI |      14. autonomous                     1
+2026-04-12 15:40:09 | INFO | CI |      15. model                          1
+2026-04-12 15:40:09 | INFO | CI |      16. powered                        1
+2026-04-12 15:40:09 | INFO | CI |      17. deployed                       1
+2026-04-12 15:40:09 | INFO | CI |      18. live                           1
+2026-04-12 15:40:09 | INFO | CI |      19. laboratory                     1
+2026-04-12 15:40:09 | INFO | CI |      20. environment                    1
+2026-04-12 15:40:09 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 15:40:09 | INFO | CI | Analysis complete.
+2026-04-12 15:40:09 | INFO | CI | ========================
+2026-04-12 15:40:09 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 15:40:09 | INFO | CI | ========================
+2026-04-12 15:40:09 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 15:40:09 | INFO | CI | ========================
+2026-04-12 15:40:09 | INFO | CI | Pipeline executed successfully!
+2026-04-12 15:40:09 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | === RUN START ===
+2026-04-12 15:43:54 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 15:43:54 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 15:43:54 | INFO | CI | python=3.14.3
+2026-04-12 15:43:54 | INFO | CI | os=Windows 11
+2026-04-12 15:43:54 | INFO | CI | shell=powershell
+2026-04-12 15:43:54 | INFO | CI | cwd=.
+2026-04-12 15:43:54 | INFO | CI | github_actions=False
+2026-04-12 15:43:54 | INFO | CI | START PIPELINE
+2026-04-12 15:43:54 | INFO | CI | ROOT_PATH = .
+2026-04-12 15:43:54 | INFO | CI | DATA_PATH = data
+2026-04-12 15:43:54 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 15:43:54 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 15:43:54 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 15:43:54 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 15:43:54 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 15:43:54 | INFO | CI | Top-level elements: ['html']
+2026-04-12 15:43:54 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 15:43:54 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 15:43:54 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 15:43:54 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 15:43:54 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 15:43:54 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 15:43:54 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | Extracting metadata from HTML
+2026-04-12 15:43:54 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 15:43:54 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 15:43:54 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 15:43:54 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 15:43:54 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 15:43:54 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 15:43:54 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 15:43:54 | INFO | CI | ------------------------
+2026-04-12 15:43:54 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 15:43:54 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 15:43:54 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 15:43:54 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 15:43:54 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 15:43:54 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI |   abstract_word_count: 177
+2026-04-12 15:43:54 | INFO | CI |   author_count:        38
+2026-04-12 15:43:54 | INFO | CI |   token_count:         130
+2026-04-12 15:43:54 | INFO | CI |   unique_token_count:  118
+2026-04-12 15:43:54 | INFO | CI |   top_keywords (phrases): ['autonomous language', 'language model', 'model powered', 'powered agents', 'agents deployed']
+2026-04-12 15:43:54 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 15:43:54 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 15:43:54 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 15:43:54 | INFO | CI | DataFrame Details
+2026-04-12 15:43:54 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 15:43:54 | INFO | CI |   Author count: 38
+2026-04-12 15:43:54 | INFO | CI |   Abstract word count: 177
+2026-04-12 15:43:54 | INFO | CI |   Token count (clean): 130
+2026-04-12 15:43:54 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 15:43:54 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 15:43:54 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 15:43:54 | INFO | CI | Transformation complete.
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 15:43:54 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 15:43:54 | INFO | CI |   Token count (clean):          130
+2026-04-12 15:43:54 | INFO | CI |   Unique token count:           118
+2026-04-12 15:43:54 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 15:43:54 | INFO | CI |   Author count:                 38
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:54 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 15:43:54 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | PHASE 4.1b/4.2b: Keyword vs Token Insight
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | Top keywords (summary view): autonomous language, language model, model powered, powered agents, agents deployed
+2026-04-12 15:43:55 | INFO | CI | Top tokens (full view): ['report', 'agents', 'system', 'language', 'execution']
+2026-04-12 15:43:55 | INFO | CI | Insight:
+2026-04-12 15:43:55 | INFO | CI | The top_keywords give a quick snapshot of what the paper is about, while the full token frequency shows all the smaller details in the language. Together, it is basically a high-level overview plus a deeper breakdown of the text.
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 15:43:55 | INFO | CI |       1. report                         3
+2026-04-12 15:43:55 | INFO | CI |       2. agents                         3
+2026-04-12 15:43:55 | INFO | CI |       3. system                         3
+2026-04-12 15:43:55 | INFO | CI |       4. language                       2
+2026-04-12 15:43:55 | INFO | CI |       5. execution                      2
+2026-04-12 15:43:55 | INFO | CI |       6. researchers                    2
+2026-04-12 15:43:55 | INFO | CI |       7. conditions                     2
+2026-04-12 15:43:55 | INFO | CI |       8. behaviors                      2
+2026-04-12 15:43:55 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 15:43:55 | INFO | CI |      10. exploratory                    1
+2026-04-12 15:43:55 | INFO | CI |      11. red                            1
+2026-04-12 15:43:55 | INFO | CI |      12. teaming                        1
+2026-04-12 15:43:55 | INFO | CI |      13. study                          1
+2026-04-12 15:43:55 | INFO | CI |      14. autonomous                     1
+2026-04-12 15:43:55 | INFO | CI |      15. model                          1
+2026-04-12 15:43:55 | INFO | CI |      16. powered                        1
+2026-04-12 15:43:55 | INFO | CI |      17. deployed                       1
+2026-04-12 15:43:55 | INFO | CI |      18. live                           1
+2026-04-12 15:43:55 | INFO | CI |      19. laboratory                     1
+2026-04-12 15:43:55 | INFO | CI |      20. environment                    1
+2026-04-12 15:43:55 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 15:43:55 | INFO | CI | Analysis complete.
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:43:55 | INFO | CI | Pipeline executed successfully!
+2026-04-12 15:43:55 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | === RUN START ===
+2026-04-12 15:45:50 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 15:45:50 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 15:45:50 | INFO | CI | python=3.14.3
+2026-04-12 15:45:50 | INFO | CI | os=Windows 11
+2026-04-12 15:45:50 | INFO | CI | shell=powershell
+2026-04-12 15:45:50 | INFO | CI | cwd=.
+2026-04-12 15:45:50 | INFO | CI | github_actions=False
+2026-04-12 15:45:50 | INFO | CI | START PIPELINE
+2026-04-12 15:45:50 | INFO | CI | ROOT_PATH = .
+2026-04-12 15:45:50 | INFO | CI | DATA_PATH = data
+2026-04-12 15:45:50 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 15:45:50 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 15:45:50 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 15:45:50 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 15:45:50 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 15:45:50 | INFO | CI | Top-level elements: ['html']
+2026-04-12 15:45:50 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 15:45:50 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 15:45:50 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 15:45:50 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 15:45:50 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 15:45:50 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 15:45:50 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | Extracting metadata from HTML
+2026-04-12 15:45:50 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 15:45:50 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 15:45:50 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 15:45:50 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 15:45:50 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 15:45:50 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 15:45:50 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 15:45:50 | INFO | CI | ------------------------
+2026-04-12 15:45:50 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 15:45:50 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 15:45:50 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 15:45:50 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 15:45:50 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 15:45:50 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI |   abstract_word_count: 177
+2026-04-12 15:45:50 | INFO | CI |   author_count:        38
+2026-04-12 15:45:50 | INFO | CI |   token_count:         130
+2026-04-12 15:45:50 | INFO | CI |   unique_token_count:  118
+2026-04-12 15:45:50 | INFO | CI |   top_keywords (phrases): ['exploratory red', 'red teaming', 'teaming study', 'autonomous language', 'language model']
+2026-04-12 15:45:50 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 15:45:50 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 15:45:50 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 15:45:50 | INFO | CI | DataFrame Details
+2026-04-12 15:45:50 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 15:45:50 | INFO | CI |   Author count: 38
+2026-04-12 15:45:50 | INFO | CI |   Abstract word count: 177
+2026-04-12 15:45:50 | INFO | CI |   Token count (clean): 130
+2026-04-12 15:45:50 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 15:45:50 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 15:45:50 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 15:45:50 | INFO | CI | Transformation complete.
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 15:45:50 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 15:45:50 | INFO | CI |   Token count (clean):          130
+2026-04-12 15:45:50 | INFO | CI |   Unique token count:           118
+2026-04-12 15:45:50 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 15:45:50 | INFO | CI |   Author count:                 38
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 4.1b/4.2b: Keyword vs Token Insight
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | Top keywords (summary view): exploratory red, red teaming, teaming study, autonomous language, language model
+2026-04-12 15:45:50 | INFO | CI | Top tokens (full view): ['report', 'agents', 'system', 'language', 'execution']
+2026-04-12 15:45:50 | INFO | CI | Insight:
+2026-04-12 15:45:50 | INFO | CI | The top_keywords give a quick snapshot of what the paper is about, while the full token frequency shows all the smaller details in the language. Together, it is basically a high-level overview plus a deeper breakdown of the text.
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:50 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 15:45:50 | INFO | CI | ========================
+2026-04-12 15:45:51 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 15:45:51 | INFO | CI | ========================
+2026-04-12 15:45:51 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 15:45:51 | INFO | CI | ========================
+2026-04-12 15:45:51 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 15:45:51 | INFO | CI |       1. report                         3
+2026-04-12 15:45:51 | INFO | CI |       2. agents                         3
+2026-04-12 15:45:51 | INFO | CI |       3. system                         3
+2026-04-12 15:45:51 | INFO | CI |       4. language                       2
+2026-04-12 15:45:51 | INFO | CI |       5. execution                      2
+2026-04-12 15:45:51 | INFO | CI |       6. researchers                    2
+2026-04-12 15:45:51 | INFO | CI |       7. conditions                     2
+2026-04-12 15:45:51 | INFO | CI |       8. behaviors                      2
+2026-04-12 15:45:51 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 15:45:51 | INFO | CI |      10. exploratory                    1
+2026-04-12 15:45:51 | INFO | CI |      11. red                            1
+2026-04-12 15:45:51 | INFO | CI |      12. teaming                        1
+2026-04-12 15:45:51 | INFO | CI |      13. study                          1
+2026-04-12 15:45:51 | INFO | CI |      14. autonomous                     1
+2026-04-12 15:45:51 | INFO | CI |      15. model                          1
+2026-04-12 15:45:51 | INFO | CI |      16. powered                        1
+2026-04-12 15:45:51 | INFO | CI |      17. deployed                       1
+2026-04-12 15:45:51 | INFO | CI |      18. live                           1
+2026-04-12 15:45:51 | INFO | CI |      19. laboratory                     1
+2026-04-12 15:45:51 | INFO | CI |      20. environment                    1
+2026-04-12 15:45:51 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 15:45:51 | INFO | CI | Analysis complete.
+2026-04-12 15:45:51 | INFO | CI | ========================
+2026-04-12 15:45:51 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 15:45:51 | INFO | CI | ========================
+2026-04-12 15:45:51 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 15:45:51 | INFO | CI | ========================
+2026-04-12 15:45:51 | INFO | CI | Pipeline executed successfully!
+2026-04-12 15:45:51 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | === RUN START ===
+2026-04-12 15:50:16 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 15:50:16 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 15:50:16 | INFO | CI | python=3.14.3
+2026-04-12 15:50:16 | INFO | CI | os=Windows 11
+2026-04-12 15:50:16 | INFO | CI | shell=powershell
+2026-04-12 15:50:16 | INFO | CI | cwd=.
+2026-04-12 15:50:16 | INFO | CI | github_actions=False
+2026-04-12 15:50:16 | INFO | CI | START PIPELINE
+2026-04-12 15:50:16 | INFO | CI | ROOT_PATH = .
+2026-04-12 15:50:16 | INFO | CI | DATA_PATH = data
+2026-04-12 15:50:16 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 15:50:16 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 15:50:16 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 15:50:16 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 15:50:16 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 15:50:16 | INFO | CI | Top-level elements: ['html']
+2026-04-12 15:50:16 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 15:50:16 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 15:50:16 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 15:50:16 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 15:50:16 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 15:50:16 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 15:50:16 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | Extracting metadata from HTML
+2026-04-12 15:50:16 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 15:50:16 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 15:50:16 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 15:50:16 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 15:50:16 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 15:50:16 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 15:50:16 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 15:50:16 | INFO | CI | ------------------------
+2026-04-12 15:50:16 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 15:50:16 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 15:50:16 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 15:50:16 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 15:50:16 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 15:50:16 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI |   abstract_word_count: 177
+2026-04-12 15:50:16 | INFO | CI |   author_count:        38
+2026-04-12 15:50:16 | INFO | CI |   token_count:         130
+2026-04-12 15:50:16 | INFO | CI |   unique_token_count:  118
+2026-04-12 15:50:16 | INFO | CI |   top_keywords (phrases): ['report exploratory', 'teaming study', 'study autonomous', 'autonomous language', 'language model']
+2026-04-12 15:50:16 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 15:50:16 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 15:50:16 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'top_keywords']
+2026-04-12 15:50:16 | INFO | CI | DataFrame Details
+2026-04-12 15:50:16 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 15:50:16 | INFO | CI |   Author count: 38
+2026-04-12 15:50:16 | INFO | CI |   Abstract word count: 177
+2026-04-12 15:50:16 | INFO | CI |   Token count (clean): 130
+2026-04-12 15:50:16 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 15:50:16 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 15:50:16 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 15:50:16 | INFO | CI | Transformation complete.
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 15:50:16 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 15:50:16 | INFO | CI |   Token count (clean):          130
+2026-04-12 15:50:16 | INFO | CI |   Unique token count:           118
+2026-04-12 15:50:16 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 15:50:16 | INFO | CI |   Author count:                 38
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 4.1b/4.2b: Keyword vs Token Insight
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | Top keywords (summary view): report exploratory, teaming study, study autonomous, autonomous language, language model
+2026-04-12 15:50:16 | INFO | CI | Top tokens (full view): ['report', 'agents', 'system', 'language', 'execution']
+2026-04-12 15:50:16 | INFO | CI | Insight:
+2026-04-12 15:50:16 | INFO | CI | The top_keywords give a quick snapshot of what the paper is about, while the full token frequency shows all the smaller details in the language. Together, it is basically a high-level overview plus a deeper breakdown of the text.
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:16 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 15:50:16 | INFO | CI | ========================
+2026-04-12 15:50:17 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 15:50:17 | INFO | CI | ========================
+2026-04-12 15:50:17 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 15:50:17 | INFO | CI | ========================
+2026-04-12 15:50:17 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 15:50:17 | INFO | CI |       1. report                         3
+2026-04-12 15:50:17 | INFO | CI |       2. agents                         3
+2026-04-12 15:50:17 | INFO | CI |       3. system                         3
+2026-04-12 15:50:17 | INFO | CI |       4. language                       2
+2026-04-12 15:50:17 | INFO | CI |       5. execution                      2
+2026-04-12 15:50:17 | INFO | CI |       6. researchers                    2
+2026-04-12 15:50:17 | INFO | CI |       7. conditions                     2
+2026-04-12 15:50:17 | INFO | CI |       8. behaviors                      2
+2026-04-12 15:50:17 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 15:50:17 | INFO | CI |      10. exploratory                    1
+2026-04-12 15:50:17 | INFO | CI |      11. red                            1
+2026-04-12 15:50:17 | INFO | CI |      12. teaming                        1
+2026-04-12 15:50:17 | INFO | CI |      13. study                          1
+2026-04-12 15:50:17 | INFO | CI |      14. autonomous                     1
+2026-04-12 15:50:17 | INFO | CI |      15. model                          1
+2026-04-12 15:50:17 | INFO | CI |      16. powered                        1
+2026-04-12 15:50:17 | INFO | CI |      17. deployed                       1
+2026-04-12 15:50:17 | INFO | CI |      18. live                           1
+2026-04-12 15:50:17 | INFO | CI |      19. laboratory                     1
+2026-04-12 15:50:17 | INFO | CI |      20. environment                    1
+2026-04-12 15:50:17 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 15:50:17 | INFO | CI | Analysis complete.
+2026-04-12 15:50:17 | INFO | CI | ========================
+2026-04-12 15:50:17 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 15:50:17 | INFO | CI | ========================
+2026-04-12 15:50:17 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 15:50:17 | INFO | CI | ========================
+2026-04-12 15:50:17 | INFO | CI | Pipeline executed successfully!
+2026-04-12 15:50:17 | INFO | CI | ========================
+2026-04-12 16:17:01 | INFO | CI | === RUN START ===
+2026-04-12 16:17:01 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 16:17:01 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 16:17:01 | INFO | CI | python=3.14.3
+2026-04-12 16:17:01 | INFO | CI | os=Windows 11
+2026-04-12 16:17:01 | INFO | CI | shell=powershell
+2026-04-12 16:17:01 | INFO | CI | cwd=.
+2026-04-12 16:17:01 | INFO | CI | github_actions=False
+2026-04-12 16:17:01 | INFO | CI | START PIPELINE
+2026-04-12 16:17:01 | INFO | CI | ROOT_PATH = .
+2026-04-12 16:17:01 | INFO | CI | DATA_PATH = data
+2026-04-12 16:17:01 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 16:17:01 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 16:17:01 | INFO | CI | ========================
+2026-04-12 16:17:01 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 16:17:01 | INFO | CI | ========================
+2026-04-12 16:17:01 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 16:17:02 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 16:17:02 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 16:17:02 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 16:17:02 | INFO | CI | Top-level elements: ['html']
+2026-04-12 16:17:02 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 16:17:02 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 16:17:02 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 16:17:02 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 16:17:02 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 16:17:02 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 16:17:02 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | Extracting metadata from HTML
+2026-04-12 16:17:02 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 16:17:02 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 16:17:02 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 16:17:02 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 16:17:02 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 16:17:02 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 16:17:02 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 16:17:02 | INFO | CI | ------------------------
+2026-04-12 16:17:02 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 16:17:02 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 16:17:02 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 16:17:02 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 16:17:02 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 16:17:02 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI |   abstract_word_count: 177
+2026-04-12 16:17:02 | INFO | CI |   author_count:        38
+2026-04-12 16:17:02 | INFO | CI |   token_count:         130
+2026-04-12 16:17:02 | INFO | CI |   unique_token_count:  118
+2026-04-12 16:17:02 | INFO | CI |   stopword_ratio: 0.0 (stopwords / total tokens)
+2026-04-12 16:17:02 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 16:17:02 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 16:17:02 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'stopword_ratio']
+2026-04-12 16:17:02 | INFO | CI | DataFrame Details
+2026-04-12 16:17:02 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 16:17:02 | INFO | CI |   Author count: 38
+2026-04-12 16:17:02 | INFO | CI |   Abstract word count: 177
+2026-04-12 16:17:02 | INFO | CI |   Token count (clean): 130
+2026-04-12 16:17:02 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 16:17:02 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 16:17:02 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 16:17:02 | INFO | CI | Transformation complete.
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 16:17:02 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 16:17:02 | INFO | CI |   Token count (clean):          130
+2026-04-12 16:17:02 | INFO | CI |   Unique token count:           118
+2026-04-12 16:17:02 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 16:17:02 | INFO | CI |   Author count:                 38
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:02 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 16:17:02 | INFO | CI | ========================
+2026-04-12 16:17:03 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 16:17:03 | INFO | CI | ========================
+2026-04-12 16:17:03 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 16:17:03 | INFO | CI | ========================
+2026-04-12 16:17:03 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 16:17:03 | INFO | CI |       1. report                         3
+2026-04-12 16:17:03 | INFO | CI |       2. agents                         3
+2026-04-12 16:17:03 | INFO | CI |       3. system                         3
+2026-04-12 16:17:03 | INFO | CI |       4. language                       2
+2026-04-12 16:17:03 | INFO | CI |       5. execution                      2
+2026-04-12 16:17:03 | INFO | CI |       6. researchers                    2
+2026-04-12 16:17:03 | INFO | CI |       7. conditions                     2
+2026-04-12 16:17:03 | INFO | CI |       8. behaviors                      2
+2026-04-12 16:17:03 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 16:17:03 | INFO | CI |      10. exploratory                    1
+2026-04-12 16:17:03 | INFO | CI |      11. red                            1
+2026-04-12 16:17:03 | INFO | CI |      12. teaming                        1
+2026-04-12 16:17:03 | INFO | CI |      13. study                          1
+2026-04-12 16:17:03 | INFO | CI |      14. autonomous                     1
+2026-04-12 16:17:03 | INFO | CI |      15. model                          1
+2026-04-12 16:17:03 | INFO | CI |      16. powered                        1
+2026-04-12 16:17:03 | INFO | CI |      17. deployed                       1
+2026-04-12 16:17:03 | INFO | CI |      18. live                           1
+2026-04-12 16:17:03 | INFO | CI |      19. laboratory                     1
+2026-04-12 16:17:03 | INFO | CI |      20. environment                    1
+2026-04-12 16:17:03 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 16:17:03 | INFO | CI | Analysis complete.
+2026-04-12 16:17:03 | INFO | CI | ========================
+2026-04-12 16:17:03 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 16:17:03 | INFO | CI | ========================
+2026-04-12 16:17:03 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 16:17:03 | INFO | CI | ========================
+2026-04-12 16:17:03 | INFO | CI | Pipeline executed successfully!
+2026-04-12 16:17:03 | INFO | CI | ========================
+2026-04-12 16:24:16 | INFO | CI | === RUN START ===
+2026-04-12 16:24:16 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 16:24:16 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 16:24:16 | INFO | CI | python=3.14.3
+2026-04-12 16:24:16 | INFO | CI | os=Windows 11
+2026-04-12 16:24:16 | INFO | CI | shell=powershell
+2026-04-12 16:24:16 | INFO | CI | cwd=.
+2026-04-12 16:24:16 | INFO | CI | github_actions=False
+2026-04-12 16:24:16 | INFO | CI | START PIPELINE
+2026-04-12 16:24:16 | INFO | CI | ROOT_PATH = .
+2026-04-12 16:24:16 | INFO | CI | DATA_PATH = data
+2026-04-12 16:24:16 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 16:24:16 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 16:24:16 | INFO | CI | ========================
+2026-04-12 16:24:16 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 16:24:16 | INFO | CI | ========================
+2026-04-12 16:24:16 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 16:24:16 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 16:24:16 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 16:24:16 | INFO | CI | ========================
+2026-04-12 16:24:16 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 16:24:16 | INFO | CI | ========================
+2026-04-12 16:24:16 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 16:24:17 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 16:24:17 | INFO | CI | Top-level elements: ['html']
+2026-04-12 16:24:17 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 16:24:17 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 16:24:17 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 16:24:17 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 16:24:17 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 16:24:17 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 16:24:17 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | Extracting metadata from HTML
+2026-04-12 16:24:17 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 16:24:17 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 16:24:17 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 16:24:17 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 16:24:17 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 16:24:17 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 16:24:17 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 16:24:17 | INFO | CI | ------------------------
+2026-04-12 16:24:17 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 16:24:17 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 16:24:17 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 16:24:17 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 16:24:17 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 16:24:17 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI |   abstract_word_count: 177
+2026-04-12 16:24:17 | INFO | CI |   author_count:        38
+2026-04-12 16:24:17 | INFO | CI |   token_count:         130
+2026-04-12 16:24:17 | INFO | CI |   unique_token_count:  118
+2026-04-12 16:24:17 | INFO | CI |   avg_word_length: 7.9615 (avg characters per token)
+2026-04-12 16:24:17 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 16:24:17 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 16:24:17 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 16:24:17 | INFO | CI | DataFrame Details
+2026-04-12 16:24:17 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 16:24:17 | INFO | CI |   Author count: 38
+2026-04-12 16:24:17 | INFO | CI |   Abstract word count: 177
+2026-04-12 16:24:17 | INFO | CI |   Token count (clean): 130
+2026-04-12 16:24:17 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 16:24:17 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 16:24:17 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 16:24:17 | INFO | CI | Transformation complete.
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 16:24:17 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 16:24:17 | INFO | CI |   Token count (clean):          130
+2026-04-12 16:24:17 | INFO | CI |   Unique token count:           118
+2026-04-12 16:24:17 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 16:24:17 | INFO | CI |   Author count:                 38
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:17 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 16:24:17 | INFO | CI | ========================
+2026-04-12 16:24:18 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 16:24:18 | INFO | CI | ========================
+2026-04-12 16:24:18 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 16:24:18 | INFO | CI | ========================
+2026-04-12 16:24:18 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 16:24:18 | INFO | CI |       1. report                         3
+2026-04-12 16:24:18 | INFO | CI |       2. agents                         3
+2026-04-12 16:24:18 | INFO | CI |       3. system                         3
+2026-04-12 16:24:18 | INFO | CI |       4. language                       2
+2026-04-12 16:24:18 | INFO | CI |       5. execution                      2
+2026-04-12 16:24:18 | INFO | CI |       6. researchers                    2
+2026-04-12 16:24:18 | INFO | CI |       7. conditions                     2
+2026-04-12 16:24:18 | INFO | CI |       8. behaviors                      2
+2026-04-12 16:24:18 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 16:24:18 | INFO | CI |      10. exploratory                    1
+2026-04-12 16:24:18 | INFO | CI |      11. red                            1
+2026-04-12 16:24:18 | INFO | CI |      12. teaming                        1
+2026-04-12 16:24:18 | INFO | CI |      13. study                          1
+2026-04-12 16:24:18 | INFO | CI |      14. autonomous                     1
+2026-04-12 16:24:18 | INFO | CI |      15. model                          1
+2026-04-12 16:24:18 | INFO | CI |      16. powered                        1
+2026-04-12 16:24:18 | INFO | CI |      17. deployed                       1
+2026-04-12 16:24:18 | INFO | CI |      18. live                           1
+2026-04-12 16:24:18 | INFO | CI |      19. laboratory                     1
+2026-04-12 16:24:18 | INFO | CI |      20. environment                    1
+2026-04-12 16:24:18 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 16:24:18 | INFO | CI | Analysis complete.
+2026-04-12 16:24:18 | INFO | CI | ========================
+2026-04-12 16:24:18 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 16:24:18 | INFO | CI | ========================
+2026-04-12 16:24:18 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 16:24:18 | INFO | CI | ========================
+2026-04-12 16:24:18 | INFO | CI | Pipeline executed successfully!
+2026-04-12 16:24:18 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | === RUN START ===
+2026-04-12 16:32:17 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 16:32:17 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 16:32:17 | INFO | CI | python=3.14.3
+2026-04-12 16:32:17 | INFO | CI | os=Windows 11
+2026-04-12 16:32:17 | INFO | CI | shell=powershell
+2026-04-12 16:32:17 | INFO | CI | cwd=.
+2026-04-12 16:32:17 | INFO | CI | github_actions=False
+2026-04-12 16:32:17 | INFO | CI | START PIPELINE
+2026-04-12 16:32:17 | INFO | CI | ROOT_PATH = .
+2026-04-12 16:32:17 | INFO | CI | DATA_PATH = data
+2026-04-12 16:32:17 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 16:32:17 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 16:32:17 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 16:32:17 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 16:32:17 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 16:32:17 | INFO | CI | Top-level elements: ['html']
+2026-04-12 16:32:17 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 16:32:17 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 16:32:17 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 16:32:17 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 16:32:17 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 16:32:17 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 16:32:17 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | Extracting metadata from HTML
+2026-04-12 16:32:17 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 16:32:17 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 16:32:17 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 16:32:17 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 16:32:17 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 16:32:17 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 16:32:17 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 16:32:17 | INFO | CI | ------------------------
+2026-04-12 16:32:17 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 16:32:17 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 16:32:17 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 16:32:17 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 16:32:17 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 16:32:17 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI |   abstract_word_count: 177
+2026-04-12 16:32:17 | INFO | CI |   author_count:        38
+2026-04-12 16:32:17 | INFO | CI |   token_count:         130
+2026-04-12 16:32:17 | INFO | CI |   unique_token_count:  118
+2026-04-12 16:32:17 | INFO | CI |   avg_word_length: 7.9615 (avg characters per token)
+2026-04-12 16:32:17 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 16:32:17 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 16:32:17 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 16:32:17 | INFO | CI | DataFrame Details
+2026-04-12 16:32:17 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 16:32:17 | INFO | CI |   Author count: 38
+2026-04-12 16:32:17 | INFO | CI |   Abstract word count: 177
+2026-04-12 16:32:17 | INFO | CI |   Token count (clean): 130
+2026-04-12 16:32:17 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 16:32:17 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 16:32:17 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 16:32:17 | INFO | CI | Transformation complete.
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 16:32:17 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 16:32:17 | INFO | CI |   Token count (clean):          130
+2026-04-12 16:32:17 | INFO | CI |   Unique token count:           118
+2026-04-12 16:32:17 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 16:32:17 | INFO | CI |   Author count:                 38
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:17 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 16:32:17 | INFO | CI | ========================
+2026-04-12 16:32:18 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 16:32:18 | INFO | CI | ========================
+2026-04-12 16:32:18 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 16:32:18 | INFO | CI | ========================
+2026-04-12 16:32:18 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 16:32:18 | INFO | CI |       1. report                         3
+2026-04-12 16:32:18 | INFO | CI |       2. agents                         3
+2026-04-12 16:32:18 | INFO | CI |       3. system                         3
+2026-04-12 16:32:18 | INFO | CI |       4. language                       2
+2026-04-12 16:32:18 | INFO | CI |       5. execution                      2
+2026-04-12 16:32:18 | INFO | CI |       6. researchers                    2
+2026-04-12 16:32:18 | INFO | CI |       7. conditions                     2
+2026-04-12 16:32:18 | INFO | CI |       8. behaviors                      2
+2026-04-12 16:32:18 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 16:32:18 | INFO | CI |      10. exploratory                    1
+2026-04-12 16:32:18 | INFO | CI |      11. red                            1
+2026-04-12 16:32:18 | INFO | CI |      12. teaming                        1
+2026-04-12 16:32:18 | INFO | CI |      13. study                          1
+2026-04-12 16:32:18 | INFO | CI |      14. autonomous                     1
+2026-04-12 16:32:18 | INFO | CI |      15. model                          1
+2026-04-12 16:32:18 | INFO | CI |      16. powered                        1
+2026-04-12 16:32:18 | INFO | CI |      17. deployed                       1
+2026-04-12 16:32:18 | INFO | CI |      18. live                           1
+2026-04-12 16:32:18 | INFO | CI |      19. laboratory                     1
+2026-04-12 16:32:18 | INFO | CI |      20. environment                    1
+2026-04-12 16:32:18 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 16:32:18 | INFO | CI | Analysis complete.
+2026-04-12 16:32:18 | INFO | CI | ========================
+2026-04-12 16:32:18 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 16:32:18 | INFO | CI | ========================
+2026-04-12 16:32:18 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 16:32:18 | INFO | CI | ========================
+2026-04-12 16:32:18 | INFO | CI | Pipeline executed successfully!
+2026-04-12 16:32:18 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | === RUN START ===
+2026-04-12 16:34:59 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 16:34:59 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 16:34:59 | INFO | CI | python=3.14.3
+2026-04-12 16:34:59 | INFO | CI | os=Windows 11
+2026-04-12 16:34:59 | INFO | CI | shell=powershell
+2026-04-12 16:34:59 | INFO | CI | cwd=.
+2026-04-12 16:34:59 | INFO | CI | github_actions=False
+2026-04-12 16:34:59 | INFO | CI | START PIPELINE
+2026-04-12 16:34:59 | INFO | CI | ROOT_PATH = .
+2026-04-12 16:34:59 | INFO | CI | DATA_PATH = data
+2026-04-12 16:34:59 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 16:34:59 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 16:34:59 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 16:34:59 | INFO | CI | SINK PATH = data\raw\case_raw.html
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 16:34:59 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 16:34:59 | INFO | CI | Top-level elements: ['html']
+2026-04-12 16:34:59 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 16:34:59 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 16:34:59 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 16:34:59 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 16:34:59 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 16:34:59 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 16:34:59 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | Extracting metadata from HTML
+2026-04-12 16:34:59 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 16:34:59 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 16:34:59 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 16:34:59 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 16:34:59 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 16:34:59 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 16:34:59 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 16:34:59 | INFO | CI | ------------------------
+2026-04-12 16:34:59 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:34:59 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 16:34:59 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 16:34:59 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 16:34:59 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 16:35:00 | INFO | CI |   abstract (clean): report exploratory redteaming study autonomous languagemodelpowered agents deployed live laboratory environment persiste...
+2026-04-12 16:35:00 | INFO | CI |   characters removed: 284 (19.7%)
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 16:35:00 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI |   abstract_word_count: 177
+2026-04-12 16:35:00 | INFO | CI |   author_count:        38
+2026-04-12 16:35:00 | INFO | CI |   token_count:         121
+2026-04-12 16:35:00 | INFO | CI |   unique_token_count:  111
+2026-04-12 16:35:00 | INFO | CI |   type_token_ratio:    0.9174
+2026-04-12 16:35:00 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'redteaming', 'study', 'autonomous', 'languagemodelpowered', 'agents', 'deployed', 'live', 'laboratory']
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | Created DataFrame with 1 row and 13 columns
+2026-04-12 16:35:00 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count']
+2026-04-12 16:35:00 | INFO | CI | DataFrame Details
+2026-04-12 16:35:00 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 16:35:00 | INFO | CI |   Author count: 38
+2026-04-12 16:35:00 | INFO | CI |   Abstract word count: 177
+2026-04-12 16:35:00 | INFO | CI |   Token count (clean): 121
+2026-04-12 16:35:00 | INFO | CI |   Type-token ratio: 0.9174
+2026-04-12 16:35:00 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          121            0.9174            38
+2026-04-12 16:35:00 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 16:35:00 | INFO | CI | Transformation complete.
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 16:35:00 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 16:35:00 | INFO | CI |   Token count (clean):          121
+2026-04-12 16:35:00 | INFO | CI |   Unique token count:           111
+2026-04-12 16:35:00 | INFO | CI |   Type-token ratio:             0.9174
+2026-04-12 16:35:00 | INFO | CI |   Author count:                 38
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI |   Saved bar chart to data\processed\case_top_tokens.png
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI |   Saved word cloud to data\processed\case_wordcloud.png
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 16:35:00 | INFO | CI |       1. report                         3
+2026-04-12 16:35:00 | INFO | CI |       2. agents                         3
+2026-04-12 16:35:00 | INFO | CI |       3. execution                      2
+2026-04-12 16:35:00 | INFO | CI |       4. researchers                    2
+2026-04-12 16:35:00 | INFO | CI |       5. conditions                     2
+2026-04-12 16:35:00 | INFO | CI |       6. behaviors                      2
+2026-04-12 16:35:00 | INFO | CI |       7. vulnerabilities                2
+2026-04-12 16:35:00 | INFO | CI |       8. system                         2
+2026-04-12 16:35:00 | INFO | CI |       9. exploratory                    1
+2026-04-12 16:35:00 | INFO | CI |      10. redteaming                     1
+2026-04-12 16:35:00 | INFO | CI |      11. study                          1
+2026-04-12 16:35:00 | INFO | CI |      12. autonomous                     1
+2026-04-12 16:35:00 | INFO | CI |      13. languagemodelpowered           1
+2026-04-12 16:35:00 | INFO | CI |      14. deployed                       1
+2026-04-12 16:35:00 | INFO | CI |      15. live                           1
+2026-04-12 16:35:00 | INFO | CI |      16. laboratory                     1
+2026-04-12 16:35:00 | INFO | CI |      17. environment                    1
+2026-04-12 16:35:00 | INFO | CI |      18. persistent                     1
+2026-04-12 16:35:00 | INFO | CI |      19. memory                         1
+2026-04-12 16:35:00 | INFO | CI |      20. email                          1
+2026-04-12 16:35:00 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 16:35:00 | INFO | CI | Analysis complete.
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | SINK PATH = data\processed\case_processed.csv
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:35:00 | INFO | CI | Pipeline executed successfully!
+2026-04-12 16:35:00 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | === RUN START ===
+2026-04-12 16:36:32 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 16:36:32 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 16:36:32 | INFO | CI | python=3.14.3
+2026-04-12 16:36:32 | INFO | CI | os=Windows 11
+2026-04-12 16:36:32 | INFO | CI | shell=powershell
+2026-04-12 16:36:32 | INFO | CI | cwd=.
+2026-04-12 16:36:32 | INFO | CI | github_actions=False
+2026-04-12 16:36:32 | INFO | CI | START PIPELINE
+2026-04-12 16:36:32 | INFO | CI | ROOT_PATH = .
+2026-04-12 16:36:32 | INFO | CI | DATA_PATH = data
+2026-04-12 16:36:32 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 16:36:32 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2602.20021
+2026-04-12 16:36:32 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2602.20021
+2026-04-12 16:36:32 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 16:36:32 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 16:36:32 | INFO | CI | Top-level elements: ['html']
+2026-04-12 16:36:32 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 16:36:32 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 16:36:32 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 16:36:32 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 16:36:32 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 16:36:32 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 16:36:32 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | Extracting metadata from HTML
+2026-04-12 16:36:32 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 16:36:32 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 16:36:32 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 16:36:32 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 16:36:32 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Extracted title: Agents of Chaos
+2026-04-12 16:36:32 | INFO | CI | Extracted authors: Natalie Shapira, Chris Wendler, Avery Yen, Gabriele Sarti, Koyena Pal, Olivia Floody, Adam Belfki, Alex Loftus, Aditya Ratan Jannali, Nikhil Prakash, Jasmine Cui, Giordano Rogers, Jannik Brinkmann, Can Rager, Amir Zur, Michael Ripa, Aruna Sankaranarayanan, David Atkinson, Rohit Gandikota, Jaden Fiotto-Kaufman, EunJeong Hwang, Hadas Orgad, P Sam Sahil, Negev Taglicht, Tomer Shabtay, Atai Ambus, Nitay Alon, Shiri Oron, Ayelet Gordon-Tapiero, Yotam Kaplan, Vered Shwartz, Tamar Rott Shaham, Christoph Riedl, Reuth Mirsky, Maarten Sap, David Manheim, Tomer Ullman, David Bau
+2026-04-12 16:36:32 | INFO | CI | Extracted abstract: We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a...
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Extracted subjects: Computer Science > Artificial Intelligence
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Extracted submission date: [Submitted on 23 Feb 2026]
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 16:36:32 | INFO | CI | ------------------------
+2026-04-12 16:36:32 | INFO | CI | Extracted arxiv_id: 2602.20021
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 16:36:32 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 16:36:32 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI |   abstract (raw):   We report an exploratory red-teaming study of autonomous language-model-powered agents deployed in a live laboratory env...
+2026-04-12 16:36:32 | INFO | CI |   abstract (clean): report exploratory red teaming study autonomous language model powered agents deployed live laboratory environment persi...
+2026-04-12 16:36:32 | INFO | CI |   characters removed: 280 (19.4%)
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 16:36:32 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI |   abstract_word_count: 177
+2026-04-12 16:36:32 | INFO | CI |   author_count:        38
+2026-04-12 16:36:32 | INFO | CI |   token_count:         130
+2026-04-12 16:36:32 | INFO | CI |   unique_token_count:  118
+2026-04-12 16:36:32 | INFO | CI |   avg_word_length: 7.9615 (avg characters per token)
+2026-04-12 16:36:32 | INFO | CI |   type_token_ratio:    0.9077
+2026-04-12 16:36:32 | INFO | CI |   top 10 tokens:       ['report', 'exploratory', 'red', 'teaming', 'study', 'autonomous', 'language', 'model', 'powered', 'agents']
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 16:36:32 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 16:36:32 | INFO | CI | DataFrame Details
+2026-04-12 16:36:32 | INFO | CI |   Title: Agents of Chaos
+2026-04-12 16:36:32 | INFO | CI |   Author count: 38
+2026-04-12 16:36:32 | INFO | CI |   Abstract word count: 177
+2026-04-12 16:36:32 | INFO | CI |   Token count (clean): 130
+2026-04-12 16:36:32 | INFO | CI |   Type-token ratio: 0.9077
+2026-04-12 16:36:32 | INFO | CI |   DF preview:
+     arxiv_id            title  token_count  type_token_ratio  author_count
+0  2602.20021  Agents of Chaos          130            0.9077            38
+2026-04-12 16:36:32 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 16:36:32 | INFO | CI | Transformation complete.
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI |   Paper: Agents of Chaos
+2026-04-12 16:36:32 | INFO | CI |   Abstract word count (raw):    177
+2026-04-12 16:36:32 | INFO | CI |   Token count (clean):          130
+2026-04-12 16:36:32 | INFO | CI |   Unique token count:           118
+2026-04-12 16:36:32 | INFO | CI |   Type-token ratio:             0.9077
+2026-04-12 16:36:32 | INFO | CI |   Author count:                 38
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:32 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 16:36:32 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI | PHASE 4.3: Word cloud
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI | PHASE 4.4: Top token summary (inline)
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 16:36:33 | INFO | CI |       1. report                         3
+2026-04-12 16:36:33 | INFO | CI |       2. agents                         3
+2026-04-12 16:36:33 | INFO | CI |       3. system                         3
+2026-04-12 16:36:33 | INFO | CI |       4. language                       2
+2026-04-12 16:36:33 | INFO | CI |       5. execution                      2
+2026-04-12 16:36:33 | INFO | CI |       6. researchers                    2
+2026-04-12 16:36:33 | INFO | CI |       7. conditions                     2
+2026-04-12 16:36:33 | INFO | CI |       8. behaviors                      2
+2026-04-12 16:36:33 | INFO | CI |       9. vulnerabilities                2
+2026-04-12 16:36:33 | INFO | CI |      10. exploratory                    1
+2026-04-12 16:36:33 | INFO | CI |      11. red                            1
+2026-04-12 16:36:33 | INFO | CI |      12. teaming                        1
+2026-04-12 16:36:33 | INFO | CI |      13. study                          1
+2026-04-12 16:36:33 | INFO | CI |      14. autonomous                     1
+2026-04-12 16:36:33 | INFO | CI |      15. model                          1
+2026-04-12 16:36:33 | INFO | CI |      16. powered                        1
+2026-04-12 16:36:33 | INFO | CI |      17. deployed                       1
+2026-04-12 16:36:33 | INFO | CI |      18. live                           1
+2026-04-12 16:36:33 | INFO | CI |      19. laboratory                     1
+2026-04-12 16:36:33 | INFO | CI |      20. environment                    1
+2026-04-12 16:36:33 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 16:36:33 | INFO | CI | Analysis complete.
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 16:36:33 | INFO | CI | ========================
+2026-04-12 16:36:33 | INFO | CI | Pipeline executed successfully!
+2026-04-12 16:36:33 | INFO | CI | ========================

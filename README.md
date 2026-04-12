@@ -232,6 +232,30 @@ git push -u origin main
 - Use the **UP ARROW** and **DOWN ARROW** in the terminal to scroll through past commands.
 - Use `CTRL+f` to find (and replace) text within a file.
 
+## My Project Modifications
+
+To make this project my own, I made a couple small but meaningful changes to the pipeline.
+
+**Phase 4: Make a Technical Modification**
+1. Added a small cleaning improvement + new derived feature
+      - I added a step to preserve meaning in hyphenated words by doing:
+        - `text = text.replace("-", " ")`
+      - I also added a new derived feature called avg_word_length, which calculates the average number of characters per token.
+2. Observations:
+      - After this change, my token count went from 121 to 130.
+        - This makes sense because splitting hyphenated words turns them into separate, meaningful tokens instead of mashed-together strings.
+      - For example, terms like `languagemodelpowered` and `redteaming` turned into `language model powered` and `red teaming`, which is much easier to interpret in analysis.
+      - My frequency results felt more accurate and readable after this change.
+      - My average word length was 7.96, which leans pretty technical and lines up with this being an academic paper.
+**Phase 5: Apply the Skills to a New Problem**
+1. TODO
+2. TODO
+3. Observations:
+     - TODO
+
+**Dataset Source**
+1. TODO
+
 ## Example Artifact (Output)
 
 ```text

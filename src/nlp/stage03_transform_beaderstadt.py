@@ -176,6 +176,11 @@ def _clean_text(text: str, nlp_model: spacy.language.Language) -> str:
     # TRADEOFF: Proper nouns lose their case signal.
     text = text.lower()
 
+    # Step 1.5: Preserve meaning of hyphenated words
+    # WHY: Without this, words like "red-teaming" become "redteaming"
+    # or "language-model-powered" becomes "languagemodelpowered".
+    text = text.replace("-", " ")
+
     # Step 2: Remove punctuation.
     # str.maketrans creates a translation table that maps each punctuation
     # character to None (removes it).
@@ -392,6 +397,13 @@ def run_transform(
     unique_token_count: int = len(set(tokens))
     LOG.info(f"  unique_token_count:  {unique_token_count}")
 
+    # Technical Mod: Calculate average word length
+    avg_word_length = sum(len(t) for t in tokens) / len(tokens) if tokens else 0.0
+
+    LOG.info(
+        f"  avg_word_length: {round(avg_word_length, 4)} (avg characters per token)"
+    )
+
     # Type-token ratio: vocabulary richness
     type_token_ratio: float = (
         round(unique_token_count / token_count, 4) if token_count > 0 else 0.0
@@ -417,6 +429,7 @@ def run_transform(
         "unique_token_count": unique_token_count,
         "type_token_ratio": type_token_ratio,
         "author_count": author_count,
+        "avg_word_length": avg_word_length,
     }
 
     df = pd.DataFrame([record])
