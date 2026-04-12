@@ -234,7 +234,7 @@ git push -u origin main
 
 ## My Project Modifications
 
-To make this project my own, I made a couple small but meaningful changes to the pipeline and applied it to a biomedical AI use case. I also tested how easily it could be reused on a different arXiv abstract without changing the core structure.
+To make this project my own, I made a few small but meaningful improvements to the NLP pipeline and applied it to a biomedical AI use abstract focused on drug and toxicity prediction. I also tested how reusable the pipeline is by running it on a different arXiv abstract without changing the core structure.
 
 **Phase 4: Make a Technical Modification**
 1. Added a small cleaning improvement + new derived feature
@@ -249,10 +249,15 @@ To make this project my own, I made a couple small but meaningful changes to the
       - My average word length was 7.96, which leans pretty technical and lines up with this being an academic paper.
 **Phase 5: Apply the Skills to a New Problem**
 1. I updated the URL in my config file to point to a different arXiv abstract in the biomedical AI space (focused on drug/toxicity prediction).
-2. TODO
-3. Observations:
+2. I added a bigram frequency chart to capture phrase level meaning instead of only individual tokens.
+3. I updated the chart colors to improve readability and made the charts show only the top 10 tokens and bigrams so the results are easier to interpret and less cluttered.
+4. I added a domain signal feature (ML vs biomedical terms) to compare which domain is more prominent in the text.
+5. Observations:
      - The pipeline worked on the new page without needing any structural changes, which shows it’s reusable across similar arXiv abstracts.
-     - The only change I made was updating the input URL.
+     - The only modification needed was updating the input URL.
+     - The top bigram frequency is lower than the top token frequency (bigrams max = 2 vs tokens max = 5), which is expected since phrase-level matches are naturally rarer.
+     - The most common bigrams include “learning ml” and “supervised learning.”
+     - ML-related terms slightly outnumber biomedical terms, suggesting the abstract leans more toward methodological (machine learning) focus than domain-specific biomedical terminology.
 
 **Dataset Source**
 1. Molecular Contrastive Learning of Representations via Graph Neural Networks

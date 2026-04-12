@@ -411,6 +411,41 @@ def run_transform(
     LOG.info(f"  type_token_ratio:    {type_token_ratio}")
     LOG.info(f"  top 10 tokens:       {tokens[:10]}")
 
+    # Technical Mod: Add a domain signal feature
+    ml_terms = {
+        "model",
+        "learning",
+        "neural",
+        "network",
+        "gnn",
+        "gnns",
+        "prediction",
+        "training",
+    }
+    bio_terms = {
+        "molecule",
+        "molecular",
+        "drug",
+        "protein",
+        "compound",
+        "binding",
+        "chemistry",
+    }
+
+    ml_count = sum(t in ml_terms for t in tokens)
+    bio_count = sum(t in bio_terms for t in tokens)
+
+    LOG.info(f"  ML-related token count:        {ml_count}")
+    LOG.info(f"  Biomedical token count:        {bio_count}")
+    LOG.info(f"  Total tokens analyzed:         {len(tokens)}")
+
+    if ml_count > bio_count:
+        LOG.info("  Interpretation: ML concepts dominate this abstract.")
+    elif bio_count > ml_count:
+        LOG.info("  Interpretation: Biomedical concepts dominate this abstract.")
+    else:
+        LOG.info("  Interpretation: Balanced ML + biomedical focus.")
+
     LOG.info("========================")
     LOG.info("PHASE 3.4: Build record and create DataFrame")
     LOG.info("========================")
@@ -430,6 +465,8 @@ def run_transform(
         "type_token_ratio": type_token_ratio,
         "author_count": author_count,
         "avg_word_length": avg_word_length,
+        "ml_term_count": ml_count,
+        "bio_term_count": bio_count,
     }
 
     df = pd.DataFrame([record])

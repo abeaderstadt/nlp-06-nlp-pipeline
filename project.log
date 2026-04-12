@@ -2460,3 +2460,2010 @@
 2026-04-12 17:12:10 | INFO | CI | ========================
 2026-04-12 17:12:10 | INFO | CI | Pipeline executed successfully!
 2026-04-12 17:12:10 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | === RUN START ===
+2026-04-12 17:37:44 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 17:37:44 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 17:37:44 | INFO | CI | python=3.14.3
+2026-04-12 17:37:44 | INFO | CI | os=Windows 11
+2026-04-12 17:37:44 | INFO | CI | shell=powershell
+2026-04-12 17:37:44 | INFO | CI | cwd=.
+2026-04-12 17:37:44 | INFO | CI | github_actions=False
+2026-04-12 17:37:44 | INFO | CI | START PIPELINE
+2026-04-12 17:37:44 | INFO | CI | ROOT_PATH = .
+2026-04-12 17:37:44 | INFO | CI | DATA_PATH = data
+2026-04-12 17:37:44 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 17:37:44 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 17:37:44 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 17:37:44 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 17:37:44 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 17:37:44 | INFO | CI | Top-level elements: ['html']
+2026-04-12 17:37:44 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 17:37:44 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 17:37:44 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 17:37:44 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 17:37:44 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 17:37:44 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 17:37:44 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | Extracting metadata from HTML
+2026-04-12 17:37:44 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 17:37:44 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 17:37:44 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 17:37:44 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 17:37:44 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:37:44 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 17:37:44 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 17:37:44 | INFO | CI | ------------------------
+2026-04-12 17:37:44 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 17:37:44 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 17:37:44 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 17:37:44 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 17:37:44 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 17:37:44 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI |   abstract_word_count: 183
+2026-04-12 17:37:44 | INFO | CI |   author_count:        4
+2026-04-12 17:37:44 | INFO | CI |   token_count:         129
+2026-04-12 17:37:44 | INFO | CI |   unique_token_count:  93
+2026-04-12 17:37:44 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 17:37:44 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 17:37:44 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 17:37:44 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 17:37:44 | INFO | CI | DataFrame Details
+2026-04-12 17:37:44 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:37:44 | INFO | CI |   Author count: 4
+2026-04-12 17:37:44 | INFO | CI |   Abstract word count: 183
+2026-04-12 17:37:44 | INFO | CI |   Token count (clean): 129
+2026-04-12 17:37:44 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 17:37:44 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 17:37:44 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 17:37:44 | INFO | CI | Transformation complete.
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:37:44 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 17:37:44 | INFO | CI |   Token count (clean):          129
+2026-04-12 17:37:44 | INFO | CI |   Unique token count:           93
+2026-04-12 17:37:44 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 17:37:44 | INFO | CI |   Author count:                 4
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:44 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 17:37:44 | INFO | CI | ========================
+2026-04-12 17:37:45 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 17:37:45 | INFO | CI | ========================
+2026-04-12 17:37:45 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 17:37:45 | INFO | CI | ========================
+2026-04-12 17:37:45 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 17:37:45 | INFO | CI | ========================
+2026-04-12 17:37:45 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 17:37:45 | INFO | CI | ========================
+2026-04-12 17:37:46 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 17:37:46 | INFO | CI | ========================
+2026-04-12 17:37:46 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 17:37:46 | INFO | CI | ========================
+2026-04-12 17:37:46 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 17:37:46 | INFO | CI |       1. learning                       5
+2026-04-12 17:37:46 | INFO | CI |       2. molecule                       5
+2026-04-12 17:37:46 | INFO | CI |       3. molecular                      4
+2026-04-12 17:37:46 | INFO | CI |       4. molclr                         4
+2026-04-12 17:37:46 | INFO | CI |       5. data                           3
+2026-04-12 17:37:46 | INFO | CI |       6. contrastive                    3
+2026-04-12 17:37:46 | INFO | CI |       7. representations                3
+2026-04-12 17:37:46 | INFO | CI |       8. molecules                      3
+2026-04-12 17:37:46 | INFO | CI |       9. ml                             2
+2026-04-12 17:37:46 | INFO | CI |      10. property                       2
+2026-04-12 17:37:46 | INFO | CI |      11. labeled                        2
+2026-04-12 17:37:46 | INFO | CI |      12. supervised                     2
+2026-04-12 17:37:46 | INFO | CI |      13. graph                          2
+2026-04-12 17:37:46 | INFO | CI |      14. gnns                           2
+2026-04-12 17:37:46 | INFO | CI |      15. framework                      2
+2026-04-12 17:37:46 | INFO | CI |      16. large                          2
+2026-04-12 17:37:46 | INFO | CI |      17. unlabeled                      2
+2026-04-12 17:37:46 | INFO | CI |      18. pre                            2
+2026-04-12 17:37:46 | INFO | CI |      19. training                       2
+2026-04-12 17:37:46 | INFO | CI |      20. augmentations                  2
+2026-04-12 17:37:46 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 17:37:46 | INFO | CI | Analysis complete.
+2026-04-12 17:37:46 | INFO | CI | ========================
+2026-04-12 17:37:46 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 17:37:46 | INFO | CI | ========================
+2026-04-12 17:37:46 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 17:37:46 | INFO | CI | ========================
+2026-04-12 17:37:46 | INFO | CI | Pipeline executed successfully!
+2026-04-12 17:37:46 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | === RUN START ===
+2026-04-12 17:44:49 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 17:44:49 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 17:44:49 | INFO | CI | python=3.14.3
+2026-04-12 17:44:49 | INFO | CI | os=Windows 11
+2026-04-12 17:44:49 | INFO | CI | shell=powershell
+2026-04-12 17:44:49 | INFO | CI | cwd=.
+2026-04-12 17:44:49 | INFO | CI | github_actions=False
+2026-04-12 17:44:49 | INFO | CI | START PIPELINE
+2026-04-12 17:44:49 | INFO | CI | ROOT_PATH = .
+2026-04-12 17:44:49 | INFO | CI | DATA_PATH = data
+2026-04-12 17:44:49 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 17:44:49 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 17:44:49 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 17:44:49 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 17:44:49 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 17:44:49 | INFO | CI | Top-level elements: ['html']
+2026-04-12 17:44:49 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 17:44:49 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 17:44:49 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 17:44:49 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 17:44:49 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 17:44:49 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 17:44:49 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | Extracting metadata from HTML
+2026-04-12 17:44:49 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 17:44:49 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 17:44:49 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 17:44:49 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 17:44:49 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:44:49 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 17:44:49 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 17:44:49 | INFO | CI | ------------------------
+2026-04-12 17:44:49 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 17:44:49 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 17:44:49 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 17:44:49 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 17:44:49 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 17:44:49 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI |   abstract_word_count: 183
+2026-04-12 17:44:49 | INFO | CI |   author_count:        4
+2026-04-12 17:44:49 | INFO | CI |   token_count:         129
+2026-04-12 17:44:49 | INFO | CI |   unique_token_count:  93
+2026-04-12 17:44:49 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 17:44:49 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 17:44:49 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 17:44:49 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 17:44:49 | INFO | CI | DataFrame Details
+2026-04-12 17:44:49 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:44:49 | INFO | CI |   Author count: 4
+2026-04-12 17:44:49 | INFO | CI |   Abstract word count: 183
+2026-04-12 17:44:49 | INFO | CI |   Token count (clean): 129
+2026-04-12 17:44:49 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 17:44:49 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 17:44:49 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 17:44:49 | INFO | CI | Transformation complete.
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:44:49 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 17:44:49 | INFO | CI |   Token count (clean):          129
+2026-04-12 17:44:49 | INFO | CI |   Unique token count:           93
+2026-04-12 17:44:49 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 17:44:49 | INFO | CI |   Author count:                 4
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:49 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 17:44:49 | INFO | CI | ========================
+2026-04-12 17:44:50 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 17:44:50 | INFO | CI | ========================
+2026-04-12 17:44:50 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 17:44:50 | INFO | CI | ========================
+2026-04-12 17:44:50 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 17:44:50 | INFO | CI | ========================
+2026-04-12 17:44:50 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 17:44:50 | INFO | CI | ========================
+2026-04-12 17:44:51 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 17:44:51 | INFO | CI | ========================
+2026-04-12 17:44:51 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 17:44:51 | INFO | CI | ========================
+2026-04-12 17:44:51 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 17:44:51 | INFO | CI |       1. learning                       5
+2026-04-12 17:44:51 | INFO | CI |       2. molecule                       5
+2026-04-12 17:44:51 | INFO | CI |       3. molecular                      4
+2026-04-12 17:44:51 | INFO | CI |       4. molclr                         4
+2026-04-12 17:44:51 | INFO | CI |       5. data                           3
+2026-04-12 17:44:51 | INFO | CI |       6. contrastive                    3
+2026-04-12 17:44:51 | INFO | CI |       7. representations                3
+2026-04-12 17:44:51 | INFO | CI |       8. molecules                      3
+2026-04-12 17:44:51 | INFO | CI |       9. ml                             2
+2026-04-12 17:44:51 | INFO | CI |      10. property                       2
+2026-04-12 17:44:51 | INFO | CI |      11. labeled                        2
+2026-04-12 17:44:51 | INFO | CI |      12. supervised                     2
+2026-04-12 17:44:51 | INFO | CI |      13. graph                          2
+2026-04-12 17:44:51 | INFO | CI |      14. gnns                           2
+2026-04-12 17:44:51 | INFO | CI |      15. framework                      2
+2026-04-12 17:44:51 | INFO | CI |      16. large                          2
+2026-04-12 17:44:51 | INFO | CI |      17. unlabeled                      2
+2026-04-12 17:44:51 | INFO | CI |      18. pre                            2
+2026-04-12 17:44:51 | INFO | CI |      19. training                       2
+2026-04-12 17:44:51 | INFO | CI |      20. augmentations                  2
+2026-04-12 17:44:51 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 17:44:51 | INFO | CI | Analysis complete.
+2026-04-12 17:44:51 | INFO | CI | ========================
+2026-04-12 17:44:51 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 17:44:51 | INFO | CI | ========================
+2026-04-12 17:44:51 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 17:44:51 | INFO | CI | ========================
+2026-04-12 17:44:51 | INFO | CI | Pipeline executed successfully!
+2026-04-12 17:44:51 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | === RUN START ===
+2026-04-12 17:53:46 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 17:53:46 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 17:53:46 | INFO | CI | python=3.14.3
+2026-04-12 17:53:46 | INFO | CI | os=Windows 11
+2026-04-12 17:53:46 | INFO | CI | shell=powershell
+2026-04-12 17:53:46 | INFO | CI | cwd=.
+2026-04-12 17:53:46 | INFO | CI | github_actions=False
+2026-04-12 17:53:46 | INFO | CI | START PIPELINE
+2026-04-12 17:53:46 | INFO | CI | ROOT_PATH = .
+2026-04-12 17:53:46 | INFO | CI | DATA_PATH = data
+2026-04-12 17:53:46 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 17:53:46 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 17:53:46 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 17:53:46 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 17:53:46 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 17:53:46 | INFO | CI | Top-level elements: ['html']
+2026-04-12 17:53:46 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 17:53:46 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 17:53:46 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 17:53:46 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 17:53:46 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 17:53:46 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 17:53:46 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | Extracting metadata from HTML
+2026-04-12 17:53:46 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 17:53:46 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 17:53:46 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 17:53:46 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 17:53:46 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:53:46 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 17:53:46 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 17:53:46 | INFO | CI | ------------------------
+2026-04-12 17:53:46 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 17:53:46 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 17:53:46 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 17:53:46 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 17:53:46 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 17:53:46 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI |   abstract_word_count: 183
+2026-04-12 17:53:46 | INFO | CI |   author_count:        4
+2026-04-12 17:53:46 | INFO | CI |   token_count:         129
+2026-04-12 17:53:46 | INFO | CI |   unique_token_count:  93
+2026-04-12 17:53:46 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 17:53:46 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 17:53:46 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 17:53:46 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 17:53:46 | INFO | CI | DataFrame Details
+2026-04-12 17:53:46 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:53:46 | INFO | CI |   Author count: 4
+2026-04-12 17:53:46 | INFO | CI |   Abstract word count: 183
+2026-04-12 17:53:46 | INFO | CI |   Token count (clean): 129
+2026-04-12 17:53:46 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 17:53:46 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 17:53:46 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 17:53:46 | INFO | CI | Transformation complete.
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:53:46 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 17:53:46 | INFO | CI |   Token count (clean):          129
+2026-04-12 17:53:46 | INFO | CI |   Unique token count:           93
+2026-04-12 17:53:46 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 17:53:46 | INFO | CI |   Author count:                 4
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:46 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 17:53:46 | INFO | CI | ========================
+2026-04-12 17:53:47 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 17:53:47 | INFO | CI | ========================
+2026-04-12 17:53:47 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 17:53:47 | INFO | CI | ========================
+2026-04-12 17:53:47 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 17:53:47 | INFO | CI | ========================
+2026-04-12 17:53:47 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 17:53:47 | INFO | CI | ========================
+2026-04-12 17:53:47 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 17:53:47 | INFO | CI | ========================
+2026-04-12 17:53:47 | INFO | CI | PHASE 4.5: Zipf's Law plot
+2026-04-12 17:53:47 | INFO | CI | ========================
+2026-04-12 17:53:48 | INFO | CI |   Saved Zipf plot to data\processed\beaderstadt_zipf_plot.png
+2026-04-12 17:53:48 | INFO | CI | ========================
+2026-04-12 17:53:48 | INFO | CI | PHASE 4.6: Top token summary (inline)
+2026-04-12 17:53:48 | INFO | CI | ========================
+2026-04-12 17:53:48 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 17:53:48 | INFO | CI |       1. learning                       5
+2026-04-12 17:53:48 | INFO | CI |       2. molecule                       5
+2026-04-12 17:53:48 | INFO | CI |       3. molecular                      4
+2026-04-12 17:53:48 | INFO | CI |       4. molclr                         4
+2026-04-12 17:53:48 | INFO | CI |       5. data                           3
+2026-04-12 17:53:48 | INFO | CI |       6. contrastive                    3
+2026-04-12 17:53:48 | INFO | CI |       7. representations                3
+2026-04-12 17:53:48 | INFO | CI |       8. molecules                      3
+2026-04-12 17:53:48 | INFO | CI |       9. ml                             2
+2026-04-12 17:53:48 | INFO | CI |      10. property                       2
+2026-04-12 17:53:48 | INFO | CI |      11. labeled                        2
+2026-04-12 17:53:48 | INFO | CI |      12. supervised                     2
+2026-04-12 17:53:48 | INFO | CI |      13. graph                          2
+2026-04-12 17:53:48 | INFO | CI |      14. gnns                           2
+2026-04-12 17:53:48 | INFO | CI |      15. framework                      2
+2026-04-12 17:53:48 | INFO | CI |      16. large                          2
+2026-04-12 17:53:48 | INFO | CI |      17. unlabeled                      2
+2026-04-12 17:53:48 | INFO | CI |      18. pre                            2
+2026-04-12 17:53:48 | INFO | CI |      19. training                       2
+2026-04-12 17:53:48 | INFO | CI |      20. augmentations                  2
+2026-04-12 17:53:48 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 17:53:48 | INFO | CI | Analysis complete.
+2026-04-12 17:53:48 | INFO | CI | ========================
+2026-04-12 17:53:48 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 17:53:48 | INFO | CI | ========================
+2026-04-12 17:53:48 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 17:53:48 | INFO | CI | ========================
+2026-04-12 17:53:48 | INFO | CI | Pipeline executed successfully!
+2026-04-12 17:53:48 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | === RUN START ===
+2026-04-12 17:58:55 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 17:58:55 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 17:58:55 | INFO | CI | python=3.14.3
+2026-04-12 17:58:55 | INFO | CI | os=Windows 11
+2026-04-12 17:58:55 | INFO | CI | shell=powershell
+2026-04-12 17:58:55 | INFO | CI | cwd=.
+2026-04-12 17:58:55 | INFO | CI | github_actions=False
+2026-04-12 17:58:55 | INFO | CI | START PIPELINE
+2026-04-12 17:58:55 | INFO | CI | ROOT_PATH = .
+2026-04-12 17:58:55 | INFO | CI | DATA_PATH = data
+2026-04-12 17:58:55 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 17:58:55 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 17:58:55 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 17:58:55 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 17:58:55 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 17:58:55 | INFO | CI | Top-level elements: ['html']
+2026-04-12 17:58:55 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 17:58:55 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 17:58:55 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 17:58:55 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 17:58:55 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 17:58:55 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 17:58:55 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | Extracting metadata from HTML
+2026-04-12 17:58:55 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 17:58:55 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 17:58:55 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 17:58:55 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 17:58:55 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:58:55 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 17:58:55 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 17:58:55 | INFO | CI | ------------------------
+2026-04-12 17:58:55 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 17:58:55 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 17:58:55 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 17:58:55 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 17:58:55 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 17:58:55 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI |   abstract_word_count: 183
+2026-04-12 17:58:55 | INFO | CI |   author_count:        4
+2026-04-12 17:58:55 | INFO | CI |   token_count:         129
+2026-04-12 17:58:55 | INFO | CI |   unique_token_count:  93
+2026-04-12 17:58:55 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 17:58:55 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 17:58:55 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 17:58:55 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 17:58:55 | INFO | CI | DataFrame Details
+2026-04-12 17:58:55 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:58:55 | INFO | CI |   Author count: 4
+2026-04-12 17:58:55 | INFO | CI |   Abstract word count: 183
+2026-04-12 17:58:55 | INFO | CI |   Token count (clean): 129
+2026-04-12 17:58:55 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 17:58:55 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 17:58:55 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 17:58:55 | INFO | CI | Transformation complete.
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 17:58:55 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 17:58:55 | INFO | CI |   Token count (clean):          129
+2026-04-12 17:58:55 | INFO | CI |   Unique token count:           93
+2026-04-12 17:58:55 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 17:58:55 | INFO | CI |   Author count:                 4
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:55 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 17:58:55 | INFO | CI | ========================
+2026-04-12 17:58:56 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 17:58:56 | INFO | CI | ========================
+2026-04-12 17:58:56 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 17:58:56 | INFO | CI | ========================
+2026-04-12 17:58:56 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 17:58:56 | INFO | CI | ========================
+2026-04-12 17:58:56 | INFO | CI | PHASE 4.5: Zipf's Law plot
+2026-04-12 17:58:56 | INFO | CI | ========================
+2026-04-12 17:58:57 | INFO | CI |   Saved Zipf plot to data\processed\beaderstadt_zipf_plot.png
+2026-04-12 17:58:57 | INFO | CI | ========================
+2026-04-12 17:58:57 | INFO | CI | PHASE 4.6: Top token summary (inline)
+2026-04-12 17:58:57 | INFO | CI | ========================
+2026-04-12 17:58:57 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 17:58:57 | INFO | CI |       1. learning                       5
+2026-04-12 17:58:57 | INFO | CI |       2. molecule                       5
+2026-04-12 17:58:57 | INFO | CI |       3. molecular                      4
+2026-04-12 17:58:57 | INFO | CI |       4. molclr                         4
+2026-04-12 17:58:57 | INFO | CI |       5. data                           3
+2026-04-12 17:58:57 | INFO | CI |       6. contrastive                    3
+2026-04-12 17:58:57 | INFO | CI |       7. representations                3
+2026-04-12 17:58:57 | INFO | CI |       8. molecules                      3
+2026-04-12 17:58:57 | INFO | CI |       9. ml                             2
+2026-04-12 17:58:57 | INFO | CI |      10. property                       2
+2026-04-12 17:58:57 | INFO | CI |      11. labeled                        2
+2026-04-12 17:58:57 | INFO | CI |      12. supervised                     2
+2026-04-12 17:58:57 | INFO | CI |      13. graph                          2
+2026-04-12 17:58:57 | INFO | CI |      14. gnns                           2
+2026-04-12 17:58:57 | INFO | CI |      15. framework                      2
+2026-04-12 17:58:57 | INFO | CI |      16. large                          2
+2026-04-12 17:58:57 | INFO | CI |      17. unlabeled                      2
+2026-04-12 17:58:57 | INFO | CI |      18. pre                            2
+2026-04-12 17:58:57 | INFO | CI |      19. training                       2
+2026-04-12 17:58:57 | INFO | CI |      20. augmentations                  2
+2026-04-12 17:58:57 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 17:58:57 | INFO | CI | Analysis complete.
+2026-04-12 17:58:57 | INFO | CI | ========================
+2026-04-12 17:58:57 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 17:58:57 | INFO | CI | ========================
+2026-04-12 17:58:57 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 17:58:57 | INFO | CI | ========================
+2026-04-12 17:58:57 | INFO | CI | Pipeline executed successfully!
+2026-04-12 17:58:57 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | === RUN START ===
+2026-04-12 18:04:51 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:04:51 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:04:51 | INFO | CI | python=3.14.3
+2026-04-12 18:04:51 | INFO | CI | os=Windows 11
+2026-04-12 18:04:51 | INFO | CI | shell=powershell
+2026-04-12 18:04:51 | INFO | CI | cwd=.
+2026-04-12 18:04:51 | INFO | CI | github_actions=False
+2026-04-12 18:04:51 | INFO | CI | START PIPELINE
+2026-04-12 18:04:51 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:04:51 | INFO | CI | DATA_PATH = data
+2026-04-12 18:04:51 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:04:51 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:04:51 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:04:51 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:04:51 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:04:51 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:04:51 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:04:51 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:04:51 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:04:51 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:04:51 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:04:51 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:04:51 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:04:51 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:04:51 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:04:51 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:04:51 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:04:51 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:04:51 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:04:51 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:04:51 | INFO | CI | ------------------------
+2026-04-12 18:04:51 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:04:51 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:04:51 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:04:51 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:04:51 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:04:51 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:04:51 | INFO | CI |   author_count:        4
+2026-04-12 18:04:51 | INFO | CI |   token_count:         129
+2026-04-12 18:04:51 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:04:51 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:04:51 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:04:51 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 18:04:51 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 18:04:51 | INFO | CI | DataFrame Details
+2026-04-12 18:04:51 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:04:51 | INFO | CI |   Author count: 4
+2026-04-12 18:04:51 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:04:51 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:04:51 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:04:51 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:04:51 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:04:51 | INFO | CI | Transformation complete.
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:04:51 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:04:51 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:04:51 | INFO | CI |   Unique token count:           93
+2026-04-12 18:04:51 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:04:51 | INFO | CI |   Author count:                 4
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:51 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 18:04:51 | INFO | CI | ========================
+2026-04-12 18:04:52 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:04:52 | INFO | CI | ========================
+2026-04-12 18:04:52 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 18:04:52 | INFO | CI | ========================
+2026-04-12 18:04:52 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:04:52 | INFO | CI | ========================
+2026-04-12 18:04:52 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:04:52 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI | PHASE 4.5: Noun phrase frequency
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI |   Saved noun phrase chart to data\processed\beaderstadt_noun_phrases.png
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI | PHASE 4.6: Top token summary (inline)
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 18:04:53 | INFO | CI |       1. learning                       5
+2026-04-12 18:04:53 | INFO | CI |       2. molecule                       5
+2026-04-12 18:04:53 | INFO | CI |       3. molecular                      4
+2026-04-12 18:04:53 | INFO | CI |       4. molclr                         4
+2026-04-12 18:04:53 | INFO | CI |       5. data                           3
+2026-04-12 18:04:53 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:04:53 | INFO | CI |       7. representations                3
+2026-04-12 18:04:53 | INFO | CI |       8. molecules                      3
+2026-04-12 18:04:53 | INFO | CI |       9. ml                             2
+2026-04-12 18:04:53 | INFO | CI |      10. property                       2
+2026-04-12 18:04:53 | INFO | CI |      11. labeled                        2
+2026-04-12 18:04:53 | INFO | CI |      12. supervised                     2
+2026-04-12 18:04:53 | INFO | CI |      13. graph                          2
+2026-04-12 18:04:53 | INFO | CI |      14. gnns                           2
+2026-04-12 18:04:53 | INFO | CI |      15. framework                      2
+2026-04-12 18:04:53 | INFO | CI |      16. large                          2
+2026-04-12 18:04:53 | INFO | CI |      17. unlabeled                      2
+2026-04-12 18:04:53 | INFO | CI |      18. pre                            2
+2026-04-12 18:04:53 | INFO | CI |      19. training                       2
+2026-04-12 18:04:53 | INFO | CI |      20. augmentations                  2
+2026-04-12 18:04:53 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:04:53 | INFO | CI | Analysis complete.
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:04:53 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:04:53 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | === RUN START ===
+2026-04-12 18:10:10 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:10:10 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:10:10 | INFO | CI | python=3.14.3
+2026-04-12 18:10:10 | INFO | CI | os=Windows 11
+2026-04-12 18:10:10 | INFO | CI | shell=powershell
+2026-04-12 18:10:10 | INFO | CI | cwd=.
+2026-04-12 18:10:10 | INFO | CI | github_actions=False
+2026-04-12 18:10:10 | INFO | CI | START PIPELINE
+2026-04-12 18:10:10 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:10:10 | INFO | CI | DATA_PATH = data
+2026-04-12 18:10:10 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:10:10 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:10:10 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:10:10 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:10:10 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:10:10 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:10:10 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:10:10 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:10:10 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:10:10 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:10:10 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:10:10 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:10:10 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:10:10 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:10:10 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:10:10 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:10:10 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:10:10 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:10:10 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:10:10 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:10:10 | INFO | CI | ------------------------
+2026-04-12 18:10:10 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:10:10 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:10:10 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:10:10 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:10:10 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:10:10 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:10:10 | INFO | CI |   author_count:        4
+2026-04-12 18:10:10 | INFO | CI |   token_count:         129
+2026-04-12 18:10:10 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:10:10 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:10:10 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:10:10 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 18:10:10 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 18:10:10 | INFO | CI | DataFrame Details
+2026-04-12 18:10:10 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:10:10 | INFO | CI |   Author count: 4
+2026-04-12 18:10:10 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:10:10 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:10:10 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:10:10 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:10:10 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:10:10 | INFO | CI | Transformation complete.
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:10:10 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:10:10 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:10:10 | INFO | CI |   Unique token count:           93
+2026-04-12 18:10:10 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:10:10 | INFO | CI |   Author count:                 4
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:10 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 18:10:10 | INFO | CI | ========================
+2026-04-12 18:10:11 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:10:11 | INFO | CI | ========================
+2026-04-12 18:10:11 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:10:11 | INFO | CI | ========================
+2026-04-12 18:10:11 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:10:11 | INFO | CI | ========================
+2026-04-12 18:10:11 | INFO | CI | PHASE 4.5: Token frequency box plot
+2026-04-12 18:10:11 | INFO | CI | ========================
+2026-04-12 18:10:12 | INFO | CI |   Saved token frequency boxplot to data\processed\beaderstadt_token_boxplot.png
+2026-04-12 18:10:12 | INFO | CI | ========================
+2026-04-12 18:10:12 | INFO | CI | PHASE 4.6: Top token summary (inline)
+2026-04-12 18:10:12 | INFO | CI | ========================
+2026-04-12 18:10:12 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 18:10:12 | INFO | CI |       1. learning                       5
+2026-04-12 18:10:12 | INFO | CI |       2. molecule                       5
+2026-04-12 18:10:12 | INFO | CI |       3. molecular                      4
+2026-04-12 18:10:12 | INFO | CI |       4. molclr                         4
+2026-04-12 18:10:12 | INFO | CI |       5. data                           3
+2026-04-12 18:10:12 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:10:12 | INFO | CI |       7. representations                3
+2026-04-12 18:10:12 | INFO | CI |       8. molecules                      3
+2026-04-12 18:10:12 | INFO | CI |       9. ml                             2
+2026-04-12 18:10:12 | INFO | CI |      10. property                       2
+2026-04-12 18:10:12 | INFO | CI |      11. labeled                        2
+2026-04-12 18:10:12 | INFO | CI |      12. supervised                     2
+2026-04-12 18:10:12 | INFO | CI |      13. graph                          2
+2026-04-12 18:10:12 | INFO | CI |      14. gnns                           2
+2026-04-12 18:10:12 | INFO | CI |      15. framework                      2
+2026-04-12 18:10:12 | INFO | CI |      16. large                          2
+2026-04-12 18:10:12 | INFO | CI |      17. unlabeled                      2
+2026-04-12 18:10:12 | INFO | CI |      18. pre                            2
+2026-04-12 18:10:12 | INFO | CI |      19. training                       2
+2026-04-12 18:10:12 | INFO | CI |      20. augmentations                  2
+2026-04-12 18:10:12 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:10:12 | INFO | CI | Analysis complete.
+2026-04-12 18:10:12 | INFO | CI | ========================
+2026-04-12 18:10:12 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:10:12 | INFO | CI | ========================
+2026-04-12 18:10:12 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:10:12 | INFO | CI | ========================
+2026-04-12 18:10:12 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:10:12 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | === RUN START ===
+2026-04-12 18:13:55 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:13:55 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:13:55 | INFO | CI | python=3.14.3
+2026-04-12 18:13:55 | INFO | CI | os=Windows 11
+2026-04-12 18:13:55 | INFO | CI | shell=powershell
+2026-04-12 18:13:55 | INFO | CI | cwd=.
+2026-04-12 18:13:55 | INFO | CI | github_actions=False
+2026-04-12 18:13:55 | INFO | CI | START PIPELINE
+2026-04-12 18:13:55 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:13:55 | INFO | CI | DATA_PATH = data
+2026-04-12 18:13:55 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:13:55 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:13:55 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:13:55 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:13:55 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:13:55 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:13:55 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:13:55 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:13:55 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:13:55 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:13:55 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:13:55 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:13:55 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:13:55 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:13:55 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:13:55 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:13:55 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:13:55 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:13:55 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:13:55 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:13:55 | INFO | CI | ------------------------
+2026-04-12 18:13:55 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:13:55 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:13:55 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:13:55 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:13:55 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:13:55 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:13:55 | INFO | CI |   author_count:        4
+2026-04-12 18:13:55 | INFO | CI |   token_count:         129
+2026-04-12 18:13:55 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:13:55 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:13:55 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:13:55 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | Created DataFrame with 1 row and 14 columns
+2026-04-12 18:13:55 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length']
+2026-04-12 18:13:55 | INFO | CI | DataFrame Details
+2026-04-12 18:13:55 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:13:55 | INFO | CI |   Author count: 4
+2026-04-12 18:13:55 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:13:55 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:13:55 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:13:55 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:13:55 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:13:55 | INFO | CI | Transformation complete.
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:13:55 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:13:55 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:13:55 | INFO | CI |   Unique token count:           93
+2026-04-12 18:13:55 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:13:55 | INFO | CI |   Author count:                 4
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:55 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 18:13:55 | INFO | CI | ========================
+2026-04-12 18:13:56 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:13:56 | INFO | CI | ========================
+2026-04-12 18:13:56 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:13:56 | INFO | CI | ========================
+2026-04-12 18:13:56 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:13:56 | INFO | CI | ========================
+2026-04-12 18:13:56 | INFO | CI | PHASE 4.5: Token frequency histogram
+2026-04-12 18:13:56 | INFO | CI | ========================
+2026-04-12 18:13:57 | INFO | CI |   Saved token frequency histogram to data\processed\beaderstadt_token_histogram.png
+2026-04-12 18:13:57 | INFO | CI | ========================
+2026-04-12 18:13:57 | INFO | CI | PHASE 4.6: Top token summary (inline)
+2026-04-12 18:13:57 | INFO | CI | ========================
+2026-04-12 18:13:57 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 18:13:57 | INFO | CI |       1. learning                       5
+2026-04-12 18:13:57 | INFO | CI |       2. molecule                       5
+2026-04-12 18:13:57 | INFO | CI |       3. molecular                      4
+2026-04-12 18:13:57 | INFO | CI |       4. molclr                         4
+2026-04-12 18:13:57 | INFO | CI |       5. data                           3
+2026-04-12 18:13:57 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:13:57 | INFO | CI |       7. representations                3
+2026-04-12 18:13:57 | INFO | CI |       8. molecules                      3
+2026-04-12 18:13:57 | INFO | CI |       9. ml                             2
+2026-04-12 18:13:57 | INFO | CI |      10. property                       2
+2026-04-12 18:13:57 | INFO | CI |      11. labeled                        2
+2026-04-12 18:13:57 | INFO | CI |      12. supervised                     2
+2026-04-12 18:13:57 | INFO | CI |      13. graph                          2
+2026-04-12 18:13:57 | INFO | CI |      14. gnns                           2
+2026-04-12 18:13:57 | INFO | CI |      15. framework                      2
+2026-04-12 18:13:57 | INFO | CI |      16. large                          2
+2026-04-12 18:13:57 | INFO | CI |      17. unlabeled                      2
+2026-04-12 18:13:57 | INFO | CI |      18. pre                            2
+2026-04-12 18:13:57 | INFO | CI |      19. training                       2
+2026-04-12 18:13:57 | INFO | CI |      20. augmentations                  2
+2026-04-12 18:13:57 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:13:57 | INFO | CI | Analysis complete.
+2026-04-12 18:13:57 | INFO | CI | ========================
+2026-04-12 18:13:57 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:13:57 | INFO | CI | ========================
+2026-04-12 18:13:57 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:13:57 | INFO | CI | ========================
+2026-04-12 18:13:57 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:13:57 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | === RUN START ===
+2026-04-12 18:19:13 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:19:13 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:19:13 | INFO | CI | python=3.14.3
+2026-04-12 18:19:13 | INFO | CI | os=Windows 11
+2026-04-12 18:19:13 | INFO | CI | shell=powershell
+2026-04-12 18:19:13 | INFO | CI | cwd=.
+2026-04-12 18:19:13 | INFO | CI | github_actions=False
+2026-04-12 18:19:13 | INFO | CI | START PIPELINE
+2026-04-12 18:19:13 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:19:13 | INFO | CI | DATA_PATH = data
+2026-04-12 18:19:13 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:19:13 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:19:13 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:19:13 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:19:13 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:19:13 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:19:13 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:19:13 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:19:13 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:19:13 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:19:13 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:19:13 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:19:13 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:19:13 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:19:13 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:19:13 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:19:13 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:19:13 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:19:13 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:19:13 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:19:13 | INFO | CI | ------------------------
+2026-04-12 18:19:13 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:19:13 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:19:13 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:19:13 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:19:13 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:19:13 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:19:13 | INFO | CI |   author_count:        4
+2026-04-12 18:19:13 | INFO | CI |   token_count:         129
+2026-04-12 18:19:13 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:19:13 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:19:13 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:19:13 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | Created DataFrame with 1 row and 16 columns
+2026-04-12 18:19:13 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length', 'ml_term_count', 'bio_term_count']
+2026-04-12 18:19:13 | INFO | CI | DataFrame Details
+2026-04-12 18:19:13 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:19:13 | INFO | CI |   Author count: 4
+2026-04-12 18:19:13 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:19:13 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:19:13 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:19:13 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:19:13 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:19:13 | INFO | CI | Transformation complete.
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:19:13 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:19:13 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:19:13 | INFO | CI |   Unique token count:           93
+2026-04-12 18:19:13 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:19:13 | INFO | CI |   Author count:                 4
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:13 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 18:19:13 | INFO | CI | ========================
+2026-04-12 18:19:14 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:19:14 | INFO | CI | ========================
+2026-04-12 18:19:14 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 18:19:14 | INFO | CI | ========================
+2026-04-12 18:19:14 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:19:14 | INFO | CI | ========================
+2026-04-12 18:19:14 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:19:14 | INFO | CI | ========================
+2026-04-12 18:19:15 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:19:15 | INFO | CI | ========================
+2026-04-12 18:19:15 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 18:19:15 | INFO | CI | ========================
+2026-04-12 18:19:15 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 18:19:15 | INFO | CI |       1. learning                       5
+2026-04-12 18:19:15 | INFO | CI |       2. molecule                       5
+2026-04-12 18:19:15 | INFO | CI |       3. molecular                      4
+2026-04-12 18:19:15 | INFO | CI |       4. molclr                         4
+2026-04-12 18:19:15 | INFO | CI |       5. data                           3
+2026-04-12 18:19:15 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:19:15 | INFO | CI |       7. representations                3
+2026-04-12 18:19:15 | INFO | CI |       8. molecules                      3
+2026-04-12 18:19:15 | INFO | CI |       9. ml                             2
+2026-04-12 18:19:15 | INFO | CI |      10. property                       2
+2026-04-12 18:19:15 | INFO | CI |      11. labeled                        2
+2026-04-12 18:19:15 | INFO | CI |      12. supervised                     2
+2026-04-12 18:19:15 | INFO | CI |      13. graph                          2
+2026-04-12 18:19:15 | INFO | CI |      14. gnns                           2
+2026-04-12 18:19:15 | INFO | CI |      15. framework                      2
+2026-04-12 18:19:15 | INFO | CI |      16. large                          2
+2026-04-12 18:19:15 | INFO | CI |      17. unlabeled                      2
+2026-04-12 18:19:15 | INFO | CI |      18. pre                            2
+2026-04-12 18:19:15 | INFO | CI |      19. training                       2
+2026-04-12 18:19:15 | INFO | CI |      20. augmentations                  2
+2026-04-12 18:19:15 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:19:15 | INFO | CI | Analysis complete.
+2026-04-12 18:19:15 | INFO | CI | ========================
+2026-04-12 18:19:15 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:19:15 | INFO | CI | ========================
+2026-04-12 18:19:15 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:19:15 | INFO | CI | ========================
+2026-04-12 18:19:15 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:19:15 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | === RUN START ===
+2026-04-12 18:23:33 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:23:33 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:23:33 | INFO | CI | python=3.14.3
+2026-04-12 18:23:33 | INFO | CI | os=Windows 11
+2026-04-12 18:23:33 | INFO | CI | shell=powershell
+2026-04-12 18:23:33 | INFO | CI | cwd=.
+2026-04-12 18:23:33 | INFO | CI | github_actions=False
+2026-04-12 18:23:33 | INFO | CI | START PIPELINE
+2026-04-12 18:23:33 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:23:33 | INFO | CI | DATA_PATH = data
+2026-04-12 18:23:33 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:23:33 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:23:33 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:23:33 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:23:33 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:23:33 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:23:33 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:23:33 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:23:33 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:23:33 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:23:33 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:23:33 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:23:33 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:23:33 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:23:33 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:23:33 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:23:33 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:23:33 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:23:33 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:23:33 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:23:33 | INFO | CI | ------------------------
+2026-04-12 18:23:33 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:23:33 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:23:33 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:23:33 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:23:33 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:23:33 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:23:33 | INFO | CI |   author_count:        4
+2026-04-12 18:23:33 | INFO | CI |   token_count:         129
+2026-04-12 18:23:33 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:23:33 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:23:33 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:23:33 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:23:33 | INFO | CI |   ML-related token count:        12
+2026-04-12 18:23:33 | INFO | CI |   Biomedical token count:        10
+2026-04-12 18:23:33 | INFO | CI |   Total tokens analyzed:         129
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | Created DataFrame with 1 row and 16 columns
+2026-04-12 18:23:33 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length', 'ml_term_count', 'bio_term_count']
+2026-04-12 18:23:33 | INFO | CI | DataFrame Details
+2026-04-12 18:23:33 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:23:33 | INFO | CI |   Author count: 4
+2026-04-12 18:23:33 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:23:33 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:23:33 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:23:33 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:23:33 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:23:33 | INFO | CI | Transformation complete.
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:23:33 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:23:33 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:23:33 | INFO | CI |   Unique token count:           93
+2026-04-12 18:23:33 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:23:33 | INFO | CI |   Author count:                 4
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:33 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 18:23:33 | INFO | CI | ========================
+2026-04-12 18:23:34 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:23:34 | INFO | CI | ========================
+2026-04-12 18:23:34 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 18:23:34 | INFO | CI | ========================
+2026-04-12 18:23:34 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:23:34 | INFO | CI | ========================
+2026-04-12 18:23:34 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:23:34 | INFO | CI | ========================
+2026-04-12 18:23:35 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:23:35 | INFO | CI | ========================
+2026-04-12 18:23:35 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 18:23:35 | INFO | CI | ========================
+2026-04-12 18:23:35 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 18:23:35 | INFO | CI |       1. learning                       5
+2026-04-12 18:23:35 | INFO | CI |       2. molecule                       5
+2026-04-12 18:23:35 | INFO | CI |       3. molecular                      4
+2026-04-12 18:23:35 | INFO | CI |       4. molclr                         4
+2026-04-12 18:23:35 | INFO | CI |       5. data                           3
+2026-04-12 18:23:35 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:23:35 | INFO | CI |       7. representations                3
+2026-04-12 18:23:35 | INFO | CI |       8. molecules                      3
+2026-04-12 18:23:35 | INFO | CI |       9. ml                             2
+2026-04-12 18:23:35 | INFO | CI |      10. property                       2
+2026-04-12 18:23:35 | INFO | CI |      11. labeled                        2
+2026-04-12 18:23:35 | INFO | CI |      12. supervised                     2
+2026-04-12 18:23:35 | INFO | CI |      13. graph                          2
+2026-04-12 18:23:35 | INFO | CI |      14. gnns                           2
+2026-04-12 18:23:35 | INFO | CI |      15. framework                      2
+2026-04-12 18:23:35 | INFO | CI |      16. large                          2
+2026-04-12 18:23:35 | INFO | CI |      17. unlabeled                      2
+2026-04-12 18:23:35 | INFO | CI |      18. pre                            2
+2026-04-12 18:23:35 | INFO | CI |      19. training                       2
+2026-04-12 18:23:35 | INFO | CI |      20. augmentations                  2
+2026-04-12 18:23:35 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:23:35 | INFO | CI | Analysis complete.
+2026-04-12 18:23:35 | INFO | CI | ========================
+2026-04-12 18:23:35 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:23:35 | INFO | CI | ========================
+2026-04-12 18:23:35 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:23:35 | INFO | CI | ========================
+2026-04-12 18:23:35 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:23:35 | INFO | CI | ========================
+2026-04-12 18:29:24 | INFO | CI | === RUN START ===
+2026-04-12 18:29:24 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:29:24 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:29:24 | INFO | CI | python=3.14.3
+2026-04-12 18:29:24 | INFO | CI | os=Windows 11
+2026-04-12 18:29:24 | INFO | CI | shell=powershell
+2026-04-12 18:29:24 | INFO | CI | cwd=.
+2026-04-12 18:29:24 | INFO | CI | github_actions=False
+2026-04-12 18:29:24 | INFO | CI | START PIPELINE
+2026-04-12 18:29:24 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:29:24 | INFO | CI | DATA_PATH = data
+2026-04-12 18:29:24 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:29:24 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:29:24 | INFO | CI | ========================
+2026-04-12 18:29:24 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:29:24 | INFO | CI | ========================
+2026-04-12 18:29:24 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:29:25 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:29:25 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:29:25 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:29:25 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:29:25 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:29:25 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:29:25 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:29:25 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:29:25 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:29:25 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:29:25 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:29:25 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:29:25 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:29:25 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:29:25 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:29:25 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:29:25 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:29:25 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:29:25 | INFO | CI | ------------------------
+2026-04-12 18:29:25 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:29:25 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:29:25 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:29:25 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:29:25 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:29:25 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:29:25 | INFO | CI |   author_count:        4
+2026-04-12 18:29:25 | INFO | CI |   token_count:         129
+2026-04-12 18:29:25 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:29:25 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:29:25 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:29:25 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:29:25 | INFO | CI |   ML-related token count:        12
+2026-04-12 18:29:25 | INFO | CI |   Biomedical token count:        10
+2026-04-12 18:29:25 | INFO | CI |   Total tokens analyzed:         129
+2026-04-12 18:29:25 | INFO | CI |   Interpretation: ML concepts dominate this abstract.
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | Created DataFrame with 1 row and 16 columns
+2026-04-12 18:29:25 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length', 'ml_term_count', 'bio_term_count']
+2026-04-12 18:29:25 | INFO | CI | DataFrame Details
+2026-04-12 18:29:25 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:29:25 | INFO | CI |   Author count: 4
+2026-04-12 18:29:25 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:29:25 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:29:25 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:29:25 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:29:25 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:29:25 | INFO | CI | Transformation complete.
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:29:25 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:29:25 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:29:25 | INFO | CI |   Unique token count:           93
+2026-04-12 18:29:25 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:29:25 | INFO | CI |   Author count:                 4
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 4.2: Top 20 token frequency - bar chart
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 4.3: Top 20 bigram frequency - bar chart
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:25 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:29:25 | INFO | CI | ========================
+2026-04-12 18:29:26 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:29:26 | INFO | CI | ========================
+2026-04-12 18:29:26 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 18:29:26 | INFO | CI | ========================
+2026-04-12 18:29:26 | INFO | CI |   Top 20 tokens by frequency:
+2026-04-12 18:29:26 | INFO | CI |       1. learning                       5
+2026-04-12 18:29:26 | INFO | CI |       2. molecule                       5
+2026-04-12 18:29:26 | INFO | CI |       3. molecular                      4
+2026-04-12 18:29:26 | INFO | CI |       4. molclr                         4
+2026-04-12 18:29:26 | INFO | CI |       5. data                           3
+2026-04-12 18:29:26 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:29:26 | INFO | CI |       7. representations                3
+2026-04-12 18:29:26 | INFO | CI |       8. molecules                      3
+2026-04-12 18:29:26 | INFO | CI |       9. ml                             2
+2026-04-12 18:29:26 | INFO | CI |      10. property                       2
+2026-04-12 18:29:26 | INFO | CI |      11. labeled                        2
+2026-04-12 18:29:26 | INFO | CI |      12. supervised                     2
+2026-04-12 18:29:26 | INFO | CI |      13. graph                          2
+2026-04-12 18:29:26 | INFO | CI |      14. gnns                           2
+2026-04-12 18:29:26 | INFO | CI |      15. framework                      2
+2026-04-12 18:29:26 | INFO | CI |      16. large                          2
+2026-04-12 18:29:26 | INFO | CI |      17. unlabeled                      2
+2026-04-12 18:29:26 | INFO | CI |      18. pre                            2
+2026-04-12 18:29:26 | INFO | CI |      19. training                       2
+2026-04-12 18:29:26 | INFO | CI |      20. augmentations                  2
+2026-04-12 18:29:26 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:29:26 | INFO | CI | Analysis complete.
+2026-04-12 18:29:26 | INFO | CI | ========================
+2026-04-12 18:29:26 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:29:26 | INFO | CI | ========================
+2026-04-12 18:29:26 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:29:26 | INFO | CI | ========================
+2026-04-12 18:29:26 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:29:26 | INFO | CI | ========================
+2026-04-12 18:45:03 | INFO | CI | === RUN START ===
+2026-04-12 18:45:03 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:45:03 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:45:03 | INFO | CI | python=3.14.3
+2026-04-12 18:45:03 | INFO | CI | os=Windows 11
+2026-04-12 18:45:03 | INFO | CI | shell=powershell
+2026-04-12 18:45:03 | INFO | CI | cwd=.
+2026-04-12 18:45:03 | INFO | CI | github_actions=False
+2026-04-12 18:45:03 | INFO | CI | START PIPELINE
+2026-04-12 18:45:03 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:45:03 | INFO | CI | DATA_PATH = data
+2026-04-12 18:45:03 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:45:03 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:45:03 | INFO | CI | ========================
+2026-04-12 18:45:03 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:45:03 | INFO | CI | ========================
+2026-04-12 18:45:03 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:45:03 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:45:03 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:45:03 | INFO | CI | ========================
+2026-04-12 18:45:03 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:45:03 | INFO | CI | ========================
+2026-04-12 18:45:03 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:45:04 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:45:04 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:45:04 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:45:04 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:45:04 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:45:04 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:45:04 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:45:04 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:45:04 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:45:04 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:45:04 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:45:04 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:45:04 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:45:04 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:45:04 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:45:04 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:45:04 | INFO | CI | ------------------------
+2026-04-12 18:45:04 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:45:04 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:45:04 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:45:04 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:45:04 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:45:04 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:45:04 | INFO | CI |   author_count:        4
+2026-04-12 18:45:04 | INFO | CI |   token_count:         129
+2026-04-12 18:45:04 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:45:04 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:45:04 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:45:04 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:45:04 | INFO | CI |   ML-related token count:        12
+2026-04-12 18:45:04 | INFO | CI |   Biomedical token count:        10
+2026-04-12 18:45:04 | INFO | CI |   Total tokens analyzed:         129
+2026-04-12 18:45:04 | INFO | CI |   Interpretation: ML concepts dominate this abstract.
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | Created DataFrame with 1 row and 16 columns
+2026-04-12 18:45:04 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length', 'ml_term_count', 'bio_term_count']
+2026-04-12 18:45:04 | INFO | CI | DataFrame Details
+2026-04-12 18:45:04 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:45:04 | INFO | CI |   Author count: 4
+2026-04-12 18:45:04 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:45:04 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:45:04 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:45:04 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:45:04 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:45:04 | INFO | CI | Transformation complete.
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:45:04 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:45:04 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:45:04 | INFO | CI |   Unique token count:           93
+2026-04-12 18:45:04 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:45:04 | INFO | CI |   Author count:                 4
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 4.2: Top 10 token frequency - bar chart
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 4.3: Top 10 bigram frequency - bar chart
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:04 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:45:04 | INFO | CI | ========================
+2026-04-12 18:45:05 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:45:05 | INFO | CI | ========================
+2026-04-12 18:45:05 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 18:45:05 | INFO | CI | ========================
+2026-04-12 18:45:05 | INFO | CI |   Top 10 tokens by frequency:
+2026-04-12 18:45:05 | INFO | CI |       1. learning                       5
+2026-04-12 18:45:05 | INFO | CI |       2. molecule                       5
+2026-04-12 18:45:05 | INFO | CI |       3. molecular                      4
+2026-04-12 18:45:05 | INFO | CI |       4. molclr                         4
+2026-04-12 18:45:05 | INFO | CI |       5. data                           3
+2026-04-12 18:45:05 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:45:05 | INFO | CI |       7. representations                3
+2026-04-12 18:45:05 | INFO | CI |       8. molecules                      3
+2026-04-12 18:45:05 | INFO | CI |       9. ml                             2
+2026-04-12 18:45:05 | INFO | CI |      10. property                       2
+2026-04-12 18:45:05 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:45:05 | INFO | CI | Analysis complete.
+2026-04-12 18:45:05 | INFO | CI | ========================
+2026-04-12 18:45:05 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:45:05 | INFO | CI | ========================
+2026-04-12 18:45:05 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:45:05 | INFO | CI | ========================
+2026-04-12 18:45:05 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:45:05 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | === RUN START ===
+2026-04-12 18:51:45 | INFO | CI | project=Module 6: EVTAL PIPELINE - WEB DOCUMENTS (HTML)
+2026-04-12 18:51:45 | INFO | CI | repo_dir=nlp-06-nlp-pipeline
+2026-04-12 18:51:45 | INFO | CI | python=3.14.3
+2026-04-12 18:51:45 | INFO | CI | os=Windows 11
+2026-04-12 18:51:45 | INFO | CI | shell=powershell
+2026-04-12 18:51:45 | INFO | CI | cwd=.
+2026-04-12 18:51:45 | INFO | CI | github_actions=False
+2026-04-12 18:51:45 | INFO | CI | START PIPELINE
+2026-04-12 18:51:45 | INFO | CI | ROOT_PATH = .
+2026-04-12 18:51:45 | INFO | CI | DATA_PATH = data
+2026-04-12 18:51:45 | INFO | CI | RAW_PATH = data\raw
+2026-04-12 18:51:45 | INFO | CI | PROCESSED_PATH = data\processed
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | STAGE 01: EXTRACT starting... 
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | EXTRACT: Fetching HTML from https://arxiv.org/abs/2102.10056
+2026-04-12 18:51:45 | INFO | CI | SOURCE URL = https://arxiv.org/abs/2102.10056
+2026-04-12 18:51:45 | INFO | CI | SINK PATH = data\raw\beaderstadt_raw.html
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | STAGE 02: VALIDATE starting...
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | HTML STRUCTURE INSPECTION:
+2026-04-12 18:51:45 | INFO | CI | Top-level type: BeautifulSoup
+2026-04-12 18:51:45 | INFO | CI | Top-level elements: ['html']
+2026-04-12 18:51:45 | INFO | CI | VALIDATE: Title found: True
+2026-04-12 18:51:45 | INFO | CI | VALIDATE: Authors found: True
+2026-04-12 18:51:45 | INFO | CI | VALIDATE: Abstract found: True
+2026-04-12 18:51:45 | INFO | CI | VALIDATE: Subjects found: True
+2026-04-12 18:51:45 | INFO | CI | VALIDATE: Dateline found: True
+2026-04-12 18:51:45 | INFO | CI | VALIDATE: HTML structure is valid.
+2026-04-12 18:51:45 | INFO | CI | Sink: validated BeautifulSoup object
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | STAGE 03: TRANSFORM starting...
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | Extracting metadata from HTML
+2026-04-12 18:51:45 | INFO | CI | We must manually inspect the HTML structure to identify the fields we want to extract.
+2026-04-12 18:51:45 | INFO | CI | For this arXiv page, we can extract:
+- Title from <h1 class='title'>
+- Authors from <div class='authors'>
+- Abstract from <blockquote class='abstract'>
+- Primary subject from <div class='subheader'>
+- Submission date from <div class='dateline'>
+- ArXiv ID from canonical link
+2026-04-12 18:51:45 | INFO | CI | Replace any missing content with `unknown` to ensure all are strings.
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | PHASE 3.1: Extract raw fields from HTML
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | Inspect: does the raw data look right?
+2026-04-12 18:51:45 | INFO | CI | Look at the logged output. Does anything look surprising?
+2026-04-12 18:51:45 | INFO | CI | That is the first signal that cleaning is needed.
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Project specific: Extract title, authors, abstract
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Extracted title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:51:45 | INFO | CI | Extracted authors: Yuyang Wang, Jianren Wang, Zhonglin Cao, Amir Barati Farimani
+2026-04-12 18:51:45 | INFO | CI | Extracted abstract: Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug di...
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Project specific: Extract subjects from subheader
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Extracted subjects: Computer Science > Machine Learning
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Project specific: Extract submission date from dateline
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Extracted submission date: [Submitted on 19 Feb 2021 (v1), last revised 17 Jan 2022 (this version, v2)]
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Project specific: Extract arxiv_id from canonical link
+2026-04-12 18:51:45 | INFO | CI | ------------------------
+2026-04-12 18:51:45 | INFO | CI | Extracted arxiv_id: 2102.10056
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | PHASE 3.2: Clean and normalize text fields
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | Inspect: compare abstract_raw to abstract_clean in the log.
+2026-04-12 18:51:45 | INFO | CI | Did we remove anything we should have kept?
+2026-04-12 18:51:45 | INFO | CI | Is there still noise that cleaning missed?
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI |   abstract (raw):   Molecular Machine Learning (ML) bears promise for efficient molecule property prediction and drug discovery. However, la...
+2026-04-12 18:51:45 | INFO | CI |   abstract (clean): molecular machine learning ml bears promise efficient molecule property prediction drug discovery labeled molecule data ...
+2026-04-12 18:51:45 | INFO | CI |   characters removed: 290 (20.4%)
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | PHASE 3.3: Engineer derived features
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | Inspect: do these derived fields look meaningful?
+2026-04-12 18:51:45 | INFO | CI | Would any additional features help the analysis?
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI |   abstract_word_count: 183
+2026-04-12 18:51:45 | INFO | CI |   author_count:        4
+2026-04-12 18:51:45 | INFO | CI |   token_count:         129
+2026-04-12 18:51:45 | INFO | CI |   unique_token_count:  93
+2026-04-12 18:51:45 | INFO | CI |   avg_word_length: 7.7597 (avg characters per token)
+2026-04-12 18:51:45 | INFO | CI |   type_token_ratio:    0.7209
+2026-04-12 18:51:45 | INFO | CI |   top 10 tokens:       ['molecular', 'machine', 'learning', 'ml', 'bears', 'promise', 'efficient', 'molecule', 'property', 'prediction']
+2026-04-12 18:51:45 | INFO | CI |   ML-related token count:        12
+2026-04-12 18:51:45 | INFO | CI |   Biomedical token count:        10
+2026-04-12 18:51:45 | INFO | CI |   Total tokens analyzed:         129
+2026-04-12 18:51:45 | INFO | CI |   Interpretation: ML concepts dominate this abstract.
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | PHASE 3.4: Build record and create DataFrame
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | Created DataFrame with 1 row and 16 columns
+2026-04-12 18:51:45 | INFO | CI | Columns: ['arxiv_id', 'title', 'authors', 'subjects', 'submitted', 'abstract_raw', 'abstract_clean', 'tokens', 'abstract_word_count', 'token_count', 'unique_token_count', 'type_token_ratio', 'author_count', 'avg_word_length', 'ml_term_count', 'bio_term_count']
+2026-04-12 18:51:45 | INFO | CI | DataFrame Details
+2026-04-12 18:51:45 | INFO | CI |   Title: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:51:45 | INFO | CI |   Author count: 4
+2026-04-12 18:51:45 | INFO | CI |   Abstract word count: 183
+2026-04-12 18:51:45 | INFO | CI |   Token count (clean): 129
+2026-04-12 18:51:45 | INFO | CI |   Type-token ratio: 0.7209
+2026-04-12 18:51:45 | INFO | CI |   DF preview:
+     arxiv_id                                              title  token_count  type_token_ratio  author_count
+0  2102.10056  Molecular Contrastive Learning of Representati...          129            0.7209             4
+2026-04-12 18:51:45 | INFO | CI | Sink: Pandas DataFrame created
+2026-04-12 18:51:45 | INFO | CI | Transformation complete.
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | STAGE 04: ANALYZE starting...
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | PHASE 4.1: Extract tokens and summary statistics
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI |   Paper: Molecular Contrastive Learning of Representations via Graph Neural Networks
+2026-04-12 18:51:45 | INFO | CI |   Abstract word count (raw):    183
+2026-04-12 18:51:45 | INFO | CI |   Token count (clean):          129
+2026-04-12 18:51:45 | INFO | CI |   Unique token count:           93
+2026-04-12 18:51:45 | INFO | CI |   Type-token ratio:             0.7209
+2026-04-12 18:51:45 | INFO | CI |   Author count:                 4
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:45 | INFO | CI | PHASE 4.2: Top 10 token frequency - bar chart
+2026-04-12 18:51:45 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI |   Saved bar chart to data\processed\beaderstadt_top_tokens.png
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI | PHASE 4.3: Top 10 bigram frequency - bar chart
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI |   Saved bigram chart to data\processed\beaderstadt_top_bigrams.png
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI | PHASE 4.4: Word cloud
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI |   Saved word cloud to data\processed\beaderstadt_wordcloud.png
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI | PHASE 4.5: Top token summary (inline)
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI |   Top 10 tokens by frequency:
+2026-04-12 18:51:46 | INFO | CI |       1. learning                       5
+2026-04-12 18:51:46 | INFO | CI |       2. molecule                       5
+2026-04-12 18:51:46 | INFO | CI |       3. molecular                      4
+2026-04-12 18:51:46 | INFO | CI |       4. molclr                         4
+2026-04-12 18:51:46 | INFO | CI |       5. data                           3
+2026-04-12 18:51:46 | INFO | CI |       6. contrastive                    3
+2026-04-12 18:51:46 | INFO | CI |       7. representations                3
+2026-04-12 18:51:46 | INFO | CI |       8. molecules                      3
+2026-04-12 18:51:46 | INFO | CI |       9. ml                             2
+2026-04-12 18:51:46 | INFO | CI |      10. property                       2
+2026-04-12 18:51:46 | INFO | CI | Sink: visualizations saved to data/processed/
+2026-04-12 18:51:46 | INFO | CI | Analysis complete.
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI | STAGE 04: LOAD starting...
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI | SINK PATH = data\processed\beaderstadt_processed.csv
+2026-04-12 18:51:46 | INFO | CI | ========================
+2026-04-12 18:51:46 | INFO | CI | Pipeline executed successfully!
+2026-04-12 18:51:46 | INFO | CI | ========================

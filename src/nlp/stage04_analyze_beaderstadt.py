@@ -118,7 +118,7 @@ def _plot_top_tokens(
     # barh creates a horizontal bar chart.
     # The y-values are the tokens (words),
     # and the x-values are their corresponding counts (frequencies).
-    ax.barh(list(reversed(words)), list(reversed(counts)), color="steelblue")
+    ax.barh(list(reversed(words)), list(reversed(counts)), color="darkviolet")
 
     # Set labels and title
     ax.set_xlabel("Frequency")
@@ -134,6 +134,46 @@ def _plot_top_tokens(
     plt.close()
 
     LOG.info(f"  Saved bar chart to {output_path}")
+
+
+def _plot_top_bigrams(
+    tokens: list[str],
+    top_n: int,
+    output_path: Path,
+    title: str,
+    LOG: logging.Logger,
+) -> None:
+    """Plot a horizontal bar chart of the top N most frequent bigrams."""
+
+    if len(tokens) < 2:
+        LOG.warning("Not enough tokens for bigrams.")
+        return
+
+    # Build bigrams
+    bigrams = list(zip(tokens, tokens[1:], strict=False))
+    bigram_strings = [" ".join(bg) for bg in bigrams]
+
+    counter = Counter(bigram_strings)
+    most_common = counter.most_common(top_n)
+
+    if not most_common:
+        LOG.warning("No bigrams to plot.")
+        return
+
+    phrases, counts = zip(*most_common, strict=False)
+
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    ax.barh(list(reversed(phrases)), list(reversed(counts)), color="darkorange")
+
+    ax.set_xlabel("Frequency")
+    ax.set_title(title)
+
+    plt.tight_layout()
+    plt.savefig(output_path, dpi=150)
+    plt.close()
+
+    LOG.info(f"  Saved bigram chart to {output_path}")
 
 
 def _plot_wordcloud(
@@ -203,7 +243,7 @@ def run_analyze(
     df: pd.DataFrame,
     LOG: logging.Logger,
     output_dir: Path = Path("data/processed"),
-    top_n: int = 20,
+    top_n: int = 10,
 ) -> None:
     """Analyze the transformed DataFrame and produce visualizations.
 
@@ -273,9 +313,28 @@ def run_analyze(
         title=f"Top {top_n} Tokens: {title}",
         LOG=LOG,
     )
+    # ============================================================
+    # Phase 4.3: Bigram frequency - phrase-level patterns
+    # ============================================================
+    # Bigrams capture meaning that single tokens miss:
+    # "molecular properties", "machine learning", "drug discovery"
+    # These are often the real signal in biomedical NLP papers.
+    # ============================================================
+
+    LOG.info("========================")
+    LOG.info(f"PHASE 4.3: Top {top_n} bigram frequency - bar chart")
+    LOG.info("========================")
+
+    _plot_top_bigrams(
+        tokens=tokens,
+        top_n=top_n,
+        output_path=output_dir / "beaderstadt_top_bigrams.png",
+        title=f"Top {top_n} Bigrams: {title}",
+        LOG=LOG,
+    )
 
     # ============================================================
-    # Phase 4.3: Word cloud
+    # Phase 4.4: Word cloud
     # ============================================================
     # A word cloud gives a gestalt view of the text.
     # Larger words appear more frequently.
@@ -286,7 +345,7 @@ def run_analyze(
     # ============================================================
 
     LOG.info("========================")
-    LOG.info("PHASE 4.3: Word cloud")
+    LOG.info("PHASE 4.4: Word cloud")
     LOG.info("========================")
 
     _plot_wordcloud(
@@ -297,7 +356,7 @@ def run_analyze(
     )
 
     # ============================================================
-    # Phase 4.4: Log top tokens for inline inspection
+    # Phase 4.5: Log top tokens for inline inspection
     # ============================================================
     # Even without opening the chart files, the log output lets you
     # inspect the top tokens directly in the terminal.
@@ -305,7 +364,7 @@ def run_analyze(
     # ============================================================
 
     LOG.info("========================")
-    LOG.info("PHASE 4.4: Top token summary (inline)")
+    LOG.info("PHASE 4.5: Top token summary (inline)")
     LOG.info("========================")
 
     counter = Counter(tokens)
