@@ -1,14 +1,14 @@
 # NLP Portfolio: Web Mining and Applied NLP
-**Author:** Alissa Beaderstadt
-**Course:** Web Mining and Applied NLP
-**Date:** 04/13/2026
+**Author:** Alissa Beaderstadt<br>
+**Course:** Web Mining and Applied NLP<br>
+**Date:** 04/13/2026<br>
 
 ---
 
 ## Overview
-This portfolio showcases my work applying NLP techniques to real-world text data from web pages, APIs, and domain-specific documents. My projects focus on building structured, repeatable pipelines to clean, analyze, and extract meaningful insights from both structured and unstructured data.
+This portfolio showcases my work applying NLP techniques to real-world text data from web pages, APIs, and domain-specific documents. My projects focus on building structured, repeatable pipelines to clean, analyze, and extract meaningful insights from both structured and unstructured data.<br>
 
-A key theme across my work is transforming messy, real-world text into usable datasets and engineering features that improve interpretability and analysis, particularly in technical and biomedical contexts.
+A key theme across my work is transforming messy, real-world text into usable datasets and engineering features that improve interpretability and analysis, particularly in technical and biomedical contexts.<br>
 
 ---
 
@@ -21,7 +21,7 @@ A key theme across my work is transforming messy, real-world text into usable da
 
 ## 1. NLP Techniques Implemented
 
-I applied a range of NLP techniques across multiple projects to process and analyze text data:
+I applied a range of NLP techniques across multiple projects to process and analyze text data:<br>
 
 - **Tokenization**
   - Converted raw text into structured tokens across web, API, and corpus-based datasets.
@@ -62,7 +62,7 @@ I applied a range of NLP techniques across multiple projects to process and anal
 
 ## 2. Systems and Data Sources
 
-I worked with multiple types of data sources:
+I worked with multiple types of data sources:<br>
 
 - **Web Pages (HTML)**
   - Wikipedia article (Shih Tzu breed)
@@ -93,7 +93,7 @@ I worked with multiple types of data sources:
 
 ## 3. Pipeline Structure (EVTL)
 
-My projects followed a structured EVTL pipeline:
+My projects followed a structured EVTL pipeline:<br>
 
 - **Extract**
   - Retrieved data from multiple sources including HTML web pages, APIs, and local text files.
@@ -120,7 +120,7 @@ My projects followed a structured EVTL pipeline:
 
 ## 4. Signals and Analysis Methods
 
-I computed and analyzed several key signals:
+I computed and analyzed several key signals:<br>
 
 - **Word Frequency**
   - Computed word frequency counts to identify the most common terms in the Shih Tzu article.
@@ -181,7 +181,7 @@ I computed and analyzed several key signals:
 
 ## 5. Insights
 
-My analysis revealed several meaningful insights:
+My analysis revealed several meaningful insights:<br>
 
 ### Data Quality and Cleaning
 - Removing noise (HTML navigation, stopwords, API artifacts) significantly improved analysis quality.
@@ -210,25 +210,25 @@ My analysis revealed several meaningful insights:
 ## 6. Representative Work
 
 ### Project 4: API-Based NLP Pipeline (News Data)
-**Link:** [GitHub Repository](https://github.com/abeaderstadt/nlp-04-api-text-data)
+**Link:** [GitHub Repository](https://github.com/abeaderstadt/nlp-04-api-text-data)<br>
 
-This project demonstrates my ability to build a full EVTL pipeline using live API data. I extended the base pipeline by adding validation for real-world JSON structures and engineering new features to improve data quality and analytical usefulness.
+This project demonstrates my ability to build a full EVTL pipeline using live API data. I extended the base pipeline by adding validation for real-world JSON structures and engineering new features to improve data quality and analytical usefulness.<br>
 
 ### Project 5: Web Document NLP Pipeline (Biomedical AI)
-**Link:** [GitHub Repository](https://github.com/abeaderstadt/nlp-05-web-documents)
+**Link:** [GitHub Repository](https://github.com/abeaderstadt/nlp-05-web-documents)<br>
 
-This project demonstrates my ability to build a reusable EVTL pipeline for extracting and analyzing structured web content. I extended the pipeline with domain-specific scoring and keyword extraction to evaluate biomedical relevance in academic abstracts.
+This project demonstrates my ability to build a reusable EVTL pipeline for extracting and analyzing structured web content. I extended the pipeline with domain-specific scoring and keyword extraction to evaluate biomedical relevance in academic abstracts.<br>
 
 ### Project 6: End-to-End NLP Pipeline with spaCy
-**Link:** [GitHub Repository](https://github.com/abeaderstadt/nlp-06-nlp-pipeline)
+**Link:** [GitHub Repository](https://github.com/abeaderstadt/nlp-06-nlp-pipeline)<br>
 
-This project demonstrates my ability to build an end-to-end NLP pipeline that integrates web scraping, text preprocessing, and linguistic analysis. I extended the pipeline with spaCy-based processing and additional analytical features to extract deeper insights from technical text.
+This project demonstrates my ability to build an end-to-end NLP pipeline that integrates web scraping, text preprocessing, and linguistic analysis. I extended the pipeline with spaCy-based processing and additional analytical features to extract deeper insights from technical text.<br>
 
 ---
 
 ## 7. Skills
 
-Through these projects, I developed the following skills:  
+Through these projects, I developed the following skills:<br>
 
 - Building end-to-end NLP pipelines using EVTL architecture
 - Extracting and processing text from HTML (BeautifulSoup) and JSON APIs
