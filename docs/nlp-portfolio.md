@@ -26,9 +26,9 @@ I applied a range of NLP techniques across multiple projects to process and anal
 - **Tokenization**
   - Converted raw text into structured tokens across web, API, and corpus-based datasets.
   - Evidence:
-  - Web scraping notebook:[web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
-  - Text preprocessing notebook:[text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
-  - Corpus exploration notebook:[nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
+    - Web scraping notebook:[web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
+    - Text preprocessing notebook:[text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
+    - Corpus exploration notebook:[nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
 
 - **Frequency Analysis (Unigrams & Bigrams)**
   - Computed word and phrase frequencies to identify dominant patterns and themes in text.
@@ -185,34 +185,29 @@ I computed and analyzed several key signals:<br>
   - Compared machine learning terms vs biomedical terms to assess thematic focus.
 
 **Evidence:**
-### Notebooks (Projects 1–3)
-- Web scraping + frequency analysis:
-  [web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
+- Notebooks (Projects 1-3)
+  - Web scraping + frequency analysis:
+    [web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
 
-- Text preprocessing pipeline:
-  [text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
+  - Text preprocessing pipeline:
+    [text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
 
-- Corpus exploration + co-occurrence analysis:
-  [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
+  - Corpus exploration + co-occurrence analysis:
+    [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
 
----
+- Processed Data Outputs (Project 4)
+  - Cleaned and engineered dataset (CSV output):
+    [beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/data/processed/beaderstadt_processed.csv)
 
-### Processed Data Outputs (Project 4)
-- Cleaned and engineered dataset (CSV output):
-  [beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/data/processed/beaderstadt_processed.csv)
-
----
-
-### Derived NLP Features (Projects 5–6)
-- Web document NLP pipeline outputs:
-  - `top_keywords`
-  - `formality_score`
-  - `bio_tox_relevance_score`
-
-- spaCy-enhanced frequency + feature outputs:
-  - token frequency charts
-  - bigram analysis
-  - derived linguistic features
+- Derived NLP Features (Projects 5-6)
+  - Web document NLP pipeline outputs:
+    - `top_keywords`
+    - `formality_score`
+    - `bio_tox_relevance_score`
+  - spaCy-enhanced frequency + feature outputs:
+    - token frequency charts
+    - bigram analysis
+    - derived linguistic features
 
 ---
 
