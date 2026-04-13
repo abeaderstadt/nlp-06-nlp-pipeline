@@ -1,4 +1,5 @@
 # nlp-06-nlp-pipeline
+Alissa Beaderstadt - Graduate Student - Data Analytics
 
 <!--additional badges are common. In your custom copy of the project, change `denisecase` to your GitHub account -->
 <!--To run link checks: open your project on GitHub, click the Actions tab, select "Check Links", click "Run workflow" -->
