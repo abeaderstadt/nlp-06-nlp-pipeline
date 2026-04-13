@@ -1,5 +1,5 @@
 # NLP Portfolio: Web Mining and Applied NLP
-**Author:** Alissa Beaderstadt<br>
+**Author:** [Alissa Beaderstadt](https://github.com/abeaderstadt)<br>
 **Course:** Web Mining and Applied NLP<br>
 **Date:** 04/13/2026<br>
 
