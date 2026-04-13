@@ -228,7 +228,7 @@ This project demonstrates my ability to build an end-to-end NLP pipeline that in
 
 ## 7. Skills
 
-Through these projects, I developed the following skills:
+Through these projects, I developed the following skills:  
 
 - Building end-to-end NLP pipelines using EVTL architecture
 - Extracting and processing text from HTML (BeautifulSoup) and JSON APIs
