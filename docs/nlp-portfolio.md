@@ -26,14 +26,14 @@ I applied a range of NLP techniques across multiple projects to process and anal
 - **Tokenization**
   - Converted raw text into structured tokens across web, API, and corpus-based datasets.
   - Evidence:
-    - Web scraping notebook:[web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
-    - Text preprocessing notebook:[text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
-    - Corpus exploration notebook:[nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
+    - Web scraping notebook: [web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
+    - Text preprocessing notebook: [text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
+    - Corpus exploration notebook: [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
 
 - **Frequency Analysis (Unigrams & Bigrams)**
   - Computed word and phrase frequencies to identify dominant patterns and themes in text.
   - Evidence:
-    - Frequency visualization (Project 6)[top tokens chart](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_tokens.png)
+    - Frequency visualization (Project 6): [top tokens chart](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_tokens.png)
     - Bigram analysis output: [top bigrams chart](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_bigrams.png)
 
 - **Text Cleaning and Normalization**
@@ -46,7 +46,7 @@ I applied a range of NLP techniques across multiple projects to process and anal
     - word count and content length categories
     - metadata flags (e.g., `has_author`)
     - domain-specific scores (e.g., `bio_tox_relevance_score`)
-  - Evidence: Transformation pipeline (web NLP):[stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/stage03_transform_beaderstadt.py)
+  - Evidence: Transformation pipeline (web NLP): [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/stage03_transform_beaderstadt.py)
 
 - **Co-occurrence and Context Analysis**
   - Analyzed relationships between words using context windows and bigram modeling.
@@ -59,8 +59,8 @@ I applied a range of NLP techniques across multiple projects to process and anal
 - **Web Scraping and API Processing**
   - Extracted text from HTML pages using BeautifulSoup and processed structured JSON from APIs.
   - Evidence:
-    - Web pipeline:[pipeline_web_html.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/pipeline_web_html.py)
-    - API pipeline:[pipeline_api_json.py](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/src/nlp/pipeline_api_json.py)
+    - Web pipeline: [pipeline_web_html.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/pipeline_web_html.py)
+    - API pipeline: [pipeline_api_json.py](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/src/nlp/pipeline_api_json.py)
 
 - **Advanced NLP with spaCy**
   - Used spaCy for tokenization, stopword removal, and linguistic preprocessing.
@@ -77,8 +77,8 @@ I worked with multiple types of data sources:<br>
 - **APIs (JSON)**
   - NewsAPI (live news article data with nested JSON structure)
 - **Text Datasets**
-  - Custom toxicology lab notes:[text_data_beaderstadt.txt](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/data/text_data_beaderstadt.txt)
-  - Structured corpus + NIOSH dataset:[corpus analysis notebook](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb) (categorized text)
+  - Custom toxicology lab notes: [text_data_beaderstadt.txt](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/data/text_data_beaderstadt.txt)
+  - Structured corpus + NIOSH dataset: [corpus analysis notebook](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb) (categorized text)
 
 **Data Challenges:**
 - The raw HTML included navigation text (e.g., "main", "menu", "sidebar") that introduced noise into the dataset.
@@ -106,30 +106,30 @@ My projects followed a structured EVTL pipeline:<br>
   - Retrieved data from multiple sources including HTML web pages, APIs, and local text files.
   - Evidence:
     - Extraction stage across notebooks
-    - Extract stage script:[stage01_extract.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage01_extract.py)
+    - Extract stage script: [stage01_extract.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage01_extract.py)
 
 - **Validate**
   - Performed checks for structure, missing values, duplicates, and formatting issues.
   - Example: compared raw vs cleaned word counts; validated JSON schema.
   - Evidence:
     - Validation steps across notebooks
-    - Validation script:[stage02_validate_beaderstadt.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/stage02_validate_beaderstadt.py)
+    - Validation script: [stage02_validate_beaderstadt.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/stage02_validate_beaderstadt.py)
 
 - **Transform**
   - Applied NLP preprocessing and feature engineering including tokenization, cleaning, and derived feature creation.
   - Evidence:
-    - Corpus notebook:[nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
-    - Transformation pipeline:[stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage03_transform_beaderstadt.py)
+    - Corpus notebook: [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
+    - Transformation pipeline: [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage03_transform_beaderstadt.py)
 
 - **Analyze**
   - Computed frequency distributions, co-occurrence patterns, and domain-specific signals.
   - Evidence:
-    - Processed dataset:[beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_processed.csv)
+    - Processed dataset: [beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_processed.csv)
 
 - **Load**
   - Saved outputs to CSV files, visualizations, and structured datasets for downstream analysis.
   - Evidence:
-  - Processed outputs:[processed data folder](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/tree/main/data/processed)
+  - Processed outputs: [processed data folder](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/tree/main/data/processed)
 
 ---
 
@@ -242,17 +242,17 @@ My analysis revealed several meaningful insights:<br>
 ## 6. Representative Work
 
 ### Project 4: API-Based NLP Pipeline (News Data)
-**Link:** GitHub repository:[View Project 4](https://github.com/abeaderstadt/nlp-04-api-text-data)<br>
+**Link:** GitHub repository: [View Project 4](https://github.com/abeaderstadt/nlp-04-api-text-data)<br>
 
 This project demonstrates my ability to build a full EVTL pipeline using live API data. I extended the base pipeline by adding validation for real-world JSON structures and engineering new features to improve data quality and analytical usefulness.<br>
 
 ### Project 5: Web Document NLP Pipeline (Biomedical AI)
-**Link:** GitHub repository:[View Project 5](https://github.com/abeaderstadt/nlp-05-web-documents)<br>
+**Link:** GitHub repository: [View Project 5](https://github.com/abeaderstadt/nlp-05-web-documents)<br>
 
 This project demonstrates my ability to build a reusable EVTL pipeline for extracting and analyzing structured web content. I extended the pipeline with domain-specific scoring and keyword extraction to evaluate biomedical relevance in academic abstracts.<br>
 
 ### Project 6: End-to-End NLP Pipeline with spaCy
-**Link:** GitHub repository:[View Project 6](https://github.com/abeaderstadt/nlp-06-nlp-pipeline)<br>
+**Link:** GitHub repository: [View Project 6](https://github.com/abeaderstadt/nlp-06-nlp-pipeline)<br>
 
 This project demonstrates my ability to build an end-to-end NLP pipeline that integrates web scraping, text preprocessing, and linguistic analysis. I extended the pipeline with spaCy-based processing and additional analytical features to extract deeper insights from technical text.<br>
 
