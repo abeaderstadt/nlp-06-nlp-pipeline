@@ -43,7 +43,8 @@ Across these projects, I used a mix of NLP techniques to process and analyze tex
 - **Text Cleaning and Normalization**
   - Applied lowercasing, punctuation removal, stopword filtering, and custom cleaning (e.g., hyphen splitting, HTML noise removal, API artifact cleanup).
   - Cleaning made a huge difference when working with HTML, where navigation text can dominate results if not removed.
-  - Evidence: preprocessing pipelines and transformation stages
+  - Evidence:
+    - Preprocessing pipelines and transformation stages
 
 - **Feature Engineering**
   - Designed and implemented derived features including:
@@ -52,17 +53,20 @@ Across these projects, I used a mix of NLP techniques to process and analyze tex
     - metadata flags (e.g., `has_author`)
     - domain-specific scores (e.g., `bio_tox_relevance_score`)
   - I especially focused on creating features that made the data more interpretable, not just more complex.
-  - Evidence: Transformation pipeline (web NLP): [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/stage03_transform_beaderstadt.py)
+  - Evidence:
+    - Transformation pipeline (web NLP): [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/stage03_transform_beaderstadt.py)
 
 - **Co-occurrence and Context Analysis**
   - Analyzed relationships between words using context windows and bigram modeling.
   - Increasing the context window helped reveal more meaningful relationships between terms.
-  - Evidence: co-occurrence analysis and [bigram outputs](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_bigrams.png)
+  - Evidence:
+    - co-occurrence analysis and [bigram outputs](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_bigrams.png)
 
 - **Keyword Extraction**
   - Extracted meaningful terms from structured text after stopword filtering.
   - Removing stopwords here made the output much more representative of the actual content.
-  - Evidence: `top_keywords` output fields
+  - Evidence:
+    - `top_keywords` output fields
 
 - **Web Scraping and API Processing**
   - Extracted text from HTML pages using BeautifulSoup and processed structured JSON from APIs.
@@ -74,7 +78,8 @@ Across these projects, I used a mix of NLP techniques to process and analyze tex
 - **Advanced NLP with spaCy**
   - Used spaCy for tokenization, stopword removal, and linguistic preprocessing.
   - This made the pipeline more efficient and consistent compared to manual preprocessing.
-  - Evidence: [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage03_transform_beaderstadt.py)
+  - Evidence:
+    - [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage03_transform_beaderstadt.py)
 
 ---
 
