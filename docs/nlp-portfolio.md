@@ -15,12 +15,9 @@ Overall, my goal was not just to process text, but to make it easier to interpre
 ---
 
 ## Key Projects
-
-| Project | Description | Skills | Link |
-|--------|------------|--------|------|
-| Project 6: NLP Pipeline with spaCy | End-to-end pipeline combining web scraping, preprocessing, and NLP analysis | spaCy, pipeline design, feature engineering | [View Repo](https://github.com/abeaderstadt/nlp-06-nlp-pipeline) |
-| Project 5: Biomedical Web Pipeline | Extracted and analyzed arXiv abstracts with domain-specific scoring | BeautifulSoup, text cleaning, domain NLP | [View Repo](https://github.com/abeaderstadt/nlp-05-web-documents) |
-| Project 4: API JSON Pipeline | Built pipeline for structured API data with validation and feature creation | API handling, JSON parsing, data validation | [View Repo](https://github.com/abeaderstadt/nlp-04-api-text-data) |
+ - [Project 6: NLP Pipeline with spaCy](https://github.com/abeaderstadt/nlp-06-nlp-pipeline)
+ - [Project 5: Biomedical Web Pipeline](https://github.com/abeaderstadt/nlp-05-web-documents)
+ - [Project 4: API JSON Pipeline](https://github.com/abeaderstadt/nlp-04-api-text-data)
 
 ---
 
@@ -156,8 +153,6 @@ My projects followed a structured EVTL pipeline:<br>
 ## 4. Signals and Analysis Methods
 
 I computed and analyzed several key signals across frequency, structure, and meaning in the text.
-
----
 
 ### **Frequency and Distribution Signals**
 - **Word Frequency**
