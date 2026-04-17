@@ -153,6 +153,92 @@ My projects followed a structured EVTL pipeline:<br>
 
 ---
 
+## 4. Signals and Analysis Methods
+
+I computed and analyzed several key signals across frequency, structure, and meaning in the text.
+
+---
+
+### **Frequency and Distribution Signals**
+- **Word Frequency**
+  - Computed word frequency counts to identify dominant terms in the Shih Tzu article and other datasets.
+  - Used Polars to compare token distributions across categories and abstracts.
+
+- **Word Count Analysis**
+  - Measured article length to better understand content depth.
+
+- **Token Length Distribution**
+  - Visualized token length distributions using histograms to understand overall text structure.
+
+---
+
+### **Structural and Contextual Patterns**
+- **Bigrams**
+  - Identified commonly co-occurring word pairs to capture phrase-level structure.
+  - Examples include patterns like “supervised learning”.
+
+- **Co-occurrence (Context Windows)**
+  - Analyzed relationships between words using sliding window approaches.
+
+- **Category Comparison**
+  - Visualized token distributions across labeled categories using horizontal bar charts.
+
+---
+
+### **Text Complexity and Metadata Signals**
+- **Text Complexity**
+  - Measured average word length as a proxy for technical complexity.
+
+- **Metadata Completeness**
+  - Used a `has_author` flag to evaluate missing metadata across articles.
+
+- **Content Categorization**
+  - Grouped articles into length-based categories to support comparative analysis.
+
+---
+
+### **Semantic and Domain-Specific Signals**
+- **Keyword Extraction**
+  - Extracted key terms from abstracts after stopword filtering to summarize core topics.
+
+- **Sentiment / Subjectivity (Formality)**
+  - Measured writing formality using a custom scoring approach based on pronoun usage.
+
+- **Domain-Specific Scoring**
+  - Computed a biomedical/toxicology relevance score using weighted keyword signals.
+
+- **Domain Signal Analysis**
+  - Compared machine learning vs biomedical terminology to assess thematic focus.
+
+---
+
+### **Visualization Outputs**
+- Bar chart of top 15 frequent words to identify dominant themes
+- Word cloud for visual summary of key terms
+- Histogram of token lengths for structural analysis
+
+---
+
+### **Evidence**
+- **Projects 1–3 Notebooks**
+  - Web scraping + frequency analysis:
+    [web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
+  - Text preprocessing pipeline:
+    [text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
+  - Corpus exploration + co-occurrence analysis:
+    [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
+
+- **Processed Outputs (Project 4)**
+  - Cleaned dataset (CSV):
+    [beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/data/processed/beaderstadt_processed.csv)
+
+- **Derived Features (Projects 5–6)**
+  - `top_keywords`, `formality_score`, `bio_tox_relevance_score`
+  - Token frequency charts and bigram outputs
+  - Additional spaCy-based linguistic features
+
+---
+
 ## 5. Insights
 
 My analysis revealed several meaningful insights:<br>
@@ -184,6 +270,31 @@ This visualization shows how quickly dominant terms emerge after cleaning, which
 
 ---
 
+## 6. Representative Work
+### Project 4: API-Based NLP Pipeline (News Data) **Link:** GitHub repository: [View Project 4](https://github.com/abeaderstadt/nlp-04-api-text-data)<br>
+
+This project demonstrates my ability to build a full EVTL pipeline using live API data. I extended the base pipeline by adding validation for real-world JSON structures and engineering new features to improve data quality and analytical usefulness.<br>
+
+ ### Project 5: Web Document NLP Pipeline (Biomedical AI) **Link:** GitHub repository: [View Project 5](https://github.com/abeaderstadt/nlp-05-web-documents)<br>
+
+ This project demonstrates my ability to build a reusable EVTL pipeline for extracting and analyzing structured web content. I extended the pipeline with domain-specific scoring and keyword extraction to evaluate biomedical relevance in academic abstracts.<br>
+
+ ### Project 6: End-to-End NLP Pipeline with spaCy **Link:** GitHub repository: [View Project 6](https://github.com/abeaderstadt/nlp-06-nlp-pipeline)<br>
+
+ This project demonstrates my ability to build an end-to-end NLP pipeline that integrates web scraping, text preprocessing, and linguistic analysis. I extended the pipeline with spaCy-based processing and additional analytical features to extract deeper insights from technical text.<br>
+
+---
+
+## 7. Skills Through these projects, I developed the following skills:<br>
+- Building end-to-end NLP pipelines using EVTL architecture
+- Extracting and processing text from HTML (BeautifulSoup) and JSON APIs
+- Cleaning and normalizing messy, real-world text data
+- Engineering custom NLP features (word count, keyword extraction, domain-specific scoring)
+- Performing frequency, bigram, and co-occurrence analysis
+- Using spaCy for efficient text processing and linguistic analysis
+- Working with structured and unstructured data across multiple formats
+- Communicating analytical results using Markdown, charts, and visualizations
+
 ## Final Notes
 
-This portfolio reflects my progression from basic text preprocessing to building more structured, reusable NLP pipelines. Moving forward, I’m interested in extending this work by incorporating machine learning models for tasks like classification and prediction, especially in areas like biomedical text analysis.
+This portfolio reflects my growth from basic text preprocessing to building more structured, reusable NLP pipelines. Moving forward, I would like to expand this work by incorporating machine learning models for tasks like classification and prediction, especially in areas like biomedical text analysis.
