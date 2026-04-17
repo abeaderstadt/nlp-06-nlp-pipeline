@@ -6,11 +6,9 @@
 ---
 
 ## Overview
-This portfolio brings together the NLP work I’ve built throughout this course, focusing on turning messy, real-world text into something structured and usable.<br>
+This portfolio brings together the NLP work I’ve built throughout this course, focusing on turning messy text into something structured and usable.<br>
 
 Across these projects, I worked with web pages, APIs, and domain-specific datasets, building EVTL pipelines to extract, clean, and analyze text data. I also started incorporating more advanced NLP features like keyword extraction and domain-specific scoring, especially for biomedical and toxicology-related text.<br>
-
-Overall, my goal was not just to process text, but to make it easier to interpret, analyze, and reuse for analysis.<br>
 
 ---
 
@@ -35,7 +33,7 @@ Across these projects, I used a mix of NLP techniques to process and analyze tex
 
 - **Frequency Analysis (Unigrams & Bigrams)**
   - Computed word and phrase frequencies to identify dominant patterns and themes in text.
-  - I used this as a quick way to sanity-check whether my cleaning steps were actually improving the data.
+  - I used this as a quick way to check whether my cleaning steps were actually improving the data.
   - Evidence:
     - Frequency visualization (Project 6): [top tokens chart](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_tokens.png)
     - Bigram analysis output: [top bigrams chart](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/data/processed/beaderstadt_top_bigrams.png)
@@ -70,14 +68,14 @@ Across these projects, I used a mix of NLP techniques to process and analyze tex
 
 - **Web Scraping and API Processing**
   - Extracted text from HTML pages using BeautifulSoup and processed structured JSON from APIs.
-  - This required handling very different data formats, which made the pipeline design more important.
+  - This required handling very different data formats, and reinforced why the pipeline design was so important.
   - Evidence:
     - Web pipeline: [pipeline_web_html.py](https://github.com/abeaderstadt/nlp-05-web-documents/blob/main/src/nlp/pipeline_web_html.py)
     - API pipeline: [pipeline_api_json.py](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/src/nlp/pipeline_api_json.py)
 
 - **Advanced NLP with spaCy**
   - Used spaCy for tokenization, stopword removal, and linguistic preprocessing.
-  - This made the pipeline more efficient and consistent compared to manual preprocessing.
+  - This made the pipeline more efficient compared to manual preprocessing.
   - Evidence:
     - [stage03_transform_beaderstadt.py](https://github.com/abeaderstadt/nlp-06-nlp-pipeline/blob/main/src/nlp/stage03_transform_beaderstadt.py)
 
@@ -170,7 +168,6 @@ I computed and analyzed several key signals across frequency, structure, and mea
 - **Token Length Distribution**
   - Visualized token length distributions using histograms to understand overall text structure.
 
----
 
 ### **Structural and Contextual Patterns**
 - **Bigrams**
@@ -183,7 +180,6 @@ I computed and analyzed several key signals across frequency, structure, and mea
 - **Category Comparison**
   - Visualized token distributions across labeled categories using horizontal bar charts.
 
----
 
 ### **Text Complexity and Metadata Signals**
 - **Text Complexity**
@@ -195,13 +191,12 @@ I computed and analyzed several key signals across frequency, structure, and mea
 - **Content Categorization**
   - Grouped articles into length-based categories to support comparative analysis.
 
----
 
-### **Semantic and Domain-Specific Signals**
+### **Domain-Specific Signals**
 - **Keyword Extraction**
   - Extracted key terms from abstracts after stopword filtering to summarize core topics.
 
-- **Sentiment / Subjectivity (Formality)**
+- **Sentiment (Formality)**
   - Measured writing formality using a custom scoring approach based on pronoun usage.
 
 - **Domain-Specific Scoring**
@@ -210,14 +205,12 @@ I computed and analyzed several key signals across frequency, structure, and mea
 - **Domain Signal Analysis**
   - Compared machine learning vs biomedical terminology to assess thematic focus.
 
----
 
 ### **Visualization Outputs**
 - Bar chart of top 15 frequent words to identify dominant themes
 - Word cloud for visual summary of key terms
 - Histogram of token lengths for structural analysis
 
----
 
 ### **Evidence**
 - **Projects 1–3 Notebooks**
