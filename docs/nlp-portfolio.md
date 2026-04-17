@@ -278,7 +278,10 @@ This project demonstrates my ability to build a full EVTL pipeline using live AP
 
 ---
 
-## 7. Skills Through these projects, I developed the following skills:<br>
+## 7. Skills
+
+Through these projects, I developed the following skills:<br>
+
 - Building end-to-end NLP pipelines using EVTL architecture
 - Extracting and processing text from HTML (BeautifulSoup) and JSON APIs
 - Cleaning and normalizing messy, real-world text data
