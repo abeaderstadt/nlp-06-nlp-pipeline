@@ -1,7 +1,7 @@
 # NLP Portfolio: Web Mining and Applied NLP
 **Author:** [Alissa Beaderstadt](https://github.com/abeaderstadt)<br>
 **Course:** Web Mining and Applied NLP<br>
-**Date:** 04/16/2026<br>
+**Date:** 04/20/2026<br>
 
 ---
 
@@ -31,7 +31,7 @@ Across these projects, I used a mix of NLP techniques to process and analyze tex
     - Text preprocessing notebook: [text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
     - Corpus exploration notebook: [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
 
-- **Frequency Analysis (Unigrams & Bigrams)**
+- **Frequency Analysis**
   - Computed word and phrase frequencies to identify dominant patterns and themes in text.
   - I used this as a quick way to check whether my cleaning steps were actually improving the data.
   - Evidence:
@@ -155,80 +155,68 @@ My projects followed a structured EVTL pipeline:<br>
 
 ## 4. Signals and Analysis Methods
 
-I computed and analyzed several key signals across frequency, structure, and meaning in the text.
+I analyzed several key signals to understand frequency, structure, and meaning in the text.
 
-### **Frequency and Distribution Signals**
+### **Frequency and Distribution**
 - **Word Frequency**
-  - Computed word frequency counts to identify dominant terms in the Shih Tzu article and other datasets.
-  - Used Polars to compare token distributions across categories and abstracts.
-
-- **Word Count Analysis**
-  - Measured article length to better understand content depth.
-
+  - Identified dominant terms across datasets and compared token distributions using Polars.
+- **Word Count**
+  - Measured article length to understand content depth.
 - **Token Length Distribution**
-  - Visualized token length distributions using histograms to understand overall text structure.
+  - Used histograms to explore overall text structure.
 
 
-### **Structural and Contextual Patterns**
+### **Structure and Context**
 - **Bigrams**
-  - Identified commonly co-occurring word pairs to capture phrase-level structure.
-  - Examples include patterns like “supervised learning”.
-
-- **Co-occurrence (Context Windows)**
-  - Analyzed relationships between words using sliding window approaches.
-
+  - Captured common word pairings (e.g., “supervised learning”) to understand phrase-level patterns.
+- **Co-occurrence**
+  - Used sliding context windows to analyze relationships between terms.
 - **Category Comparison**
-  - Visualized token distributions across labeled categories using horizontal bar charts.
+  - Compared token distributions across labeled categories using bar charts.
 
 
-### **Text Complexity and Metadata Signals**
+### **Complexity and Metadata**
 - **Text Complexity**
-  - Measured average word length as a proxy for technical complexity.
-
+  - Estimated technical difficulty using average word length.
 - **Metadata Completeness**
-  - Used a `has_author` flag to evaluate missing metadata across articles.
-
+  - Evaluated missing data using a `has_author` flag.
 - **Content Categorization**
-  - Grouped articles into length-based categories to support comparative analysis.
+  - Grouped articles by length to support comparison.
 
 
 ### **Domain-Specific Signals**
 - **Keyword Extraction**
-  - Extracted key terms from abstracts after stopword filtering to summarize core topics.
-
-- **Sentiment (Formality)**
-  - Measured writing formality using a custom scoring approach based on pronoun usage.
-
-- **Domain-Specific Scoring**
-  - Computed a biomedical/toxicology relevance score using weighted keyword signals.
-
-- **Domain Signal Analysis**
-  - Compared machine learning vs biomedical terminology to assess thematic focus.
+  - Identified key terms from abstracts after stopword filtering.
+- **Formality (Sentiment Proxy)**
+  - Estimated writing style using pronoun-based scoring.
+- **Domain Scoring**
+  - Built a biomedical/toxicology relevance score using weighted keywords.
+- **Domain Comparison**
+  - Compared machine learning vs biomedical terminology to assess focus.
 
 
-### **Visualization Outputs**
-- Bar chart of top 15 frequent words to identify dominant themes
-- Word cloud for visual summary of key terms
-- Histogram of token lengths for structural analysis
+### **Visual Outputs**
+- Top 15 word frequency bar chart
+- Word cloud of key terms
+- Token length histogram
 
 
 ### **Evidence**
 - **Projects 1–3 Notebooks**
   - Web scraping + frequency analysis:
     [web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
-  - Text preprocessing pipeline:
+  - Text preprocessing:
     [text_preprocessing_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-02-text-preprocessing/blob/main/notebooks/text_preprocessing_beaderstadt.ipynb)
-  - Corpus exploration + co-occurrence analysis:
+  - Corpus exploration + co-occurrence:
     [nlp_corpus_explore_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-03-text-exploration/blob/main/notebooks/nlp_corpus_explore_beaderstadt.ipynb)
 
-- **Processed Outputs (Project 4)**
-  - Cleaned dataset (CSV):
+- **Processed Output (Project 4)**
+  - Cleaned dataset:
     [beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/data/processed/beaderstadt_processed.csv)
 
 - **Derived Features (Projects 5–6)**
   - `top_keywords`, `formality_score`, `bio_tox_relevance_score`
-  - Token frequency charts and bigram outputs
-  - Additional spaCy-based linguistic features
+  - Token frequency charts, bigrams, and additional spaCy-based features
 
 ---
 
