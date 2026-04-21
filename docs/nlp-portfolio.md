@@ -202,7 +202,7 @@ I analyzed several key signals to understand frequency, structure, and meaning i
 
 
 ### **Evidence**
-- **Projects 1–3 Notebooks**
+- **Projects 1-3 Notebooks**
   - Web scraping + frequency analysis:
     [web_words_beaderstadt.ipynb](https://github.com/abeaderstadt/nlp-01-getting-started/blob/main/notebooks/web_words_beaderstadt.ipynb)
   - Text preprocessing:
@@ -214,7 +214,7 @@ I analyzed several key signals to understand frequency, structure, and meaning i
   - Cleaned dataset:
     [beaderstadt_processed.csv](https://github.com/abeaderstadt/nlp-04-api-text-data/blob/main/data/processed/beaderstadt_processed.csv)
 
-- **Derived Features (Projects 5–6)**
+- **Derived Features (Projects 5-6)**
   - `top_keywords`, `formality_score`, `bio_tox_relevance_score`
   - Token frequency charts, bigrams, and additional spaCy-based features
 
